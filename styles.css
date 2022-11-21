@@ -77,4 +77,52 @@ svg {
 
 /* GENERAL STYLING */
 
+body{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.sidebar{
+    grid-column: 1;
+    grid-row: 1/-2;
+    background-color: antiquewhite;
+}
+
+.website-footer{
+    grid-column: 1/-1;
+    grid-row: -1;
+    background-color: rgb(148, 152, 152);
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 1fr min-content;
+}
+
+.primary-header{
+    grid-row: 1;
+    background-color: rgb(191, 233, 233);
+}
+
+main{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.books{
+    grid-column: 1;
+    grid-row: 1/-1;
+    background-color: blanchedalmond;
+}
+
+.anouncements{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.daily-recommendation{
+    grid-column: 2;
+    grid-row: 2;
+}
+
 /* UTILITIES */
