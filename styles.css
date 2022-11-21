@@ -54,7 +54,7 @@ img,
 picture,
 svg {
     max-width: 100%;
-    display: block;
+    /* display: block; */
 }
 
 
@@ -95,24 +95,66 @@ body{
 }
 
 .container{
+    height: auto;
     display: grid;
-    grid-template-rows: 1fr min-content;
+    grid-template-rows: 1fr minmax(min-content, 4fr);
 }
 
 .primary-header{
     grid-row: 1;
     background-color: rgb(191, 233, 233);
+    padding: 1em;
+}
+
+
+.header-top{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr auto;
+}
+
+.header-top .logo{
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 3rem;
+}
+
+.header-top .motto{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.header-top > .website-theme{
+    justify-self: center;
+    align-self: center;
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    gap: 1em;
+}
+
+.website-theme > svg{
+    height: 40px;
+    width: 40px;
+    background-color: aliceblue;
+}
+
+.header-bottom{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
 }
 
 main{
     display: grid;
     grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
 }
 
 .books{
     grid-column: 1;
     grid-row: 1/-1;
-    background-color: blanchedalmond;
+    background-color: rgb(247, 218, 174);
 }
 
 .anouncements{
