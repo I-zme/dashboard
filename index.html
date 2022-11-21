@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <script src="./main.js" defer></script>
     <title>Document</title>
 </head>
 <body>
     <nav class="sidebar">
+        <button class="nav-toggle" aria-label="open navigational sidebar">CoLibrary</button>
         <ul class="side-list">
             <li class="lbr-page" id="home"><a href="./index.html"><span class="page-name">Home</span></a></li>
             <li class="lbr-page" id="about"><a href="#"><span class="page-name">About Us</span></a></li>
@@ -26,33 +28,44 @@
             <div class="header-top">
                 <div class="logo"><img src="" alt="">CoLibrary</div>
                 <p class="motto">A library by users, for users</p>
-                <div class="website-theme">
-                    <svg id="light-theme"></svg>
-                    <svg id="dark-theme"></svg>
-                </div>
             </div>
             <div class="header-bottom">
                 <input type="search" name="search-bar" id="search-bar">
                 <a href="#"><button class="upload | header-button">Upload your own!</button></a>
                 <a href="#"><button class="log-in | header-button">Sign up / Log in</button></a>
+                <div class="website-theme">
+                    <button class="theme-dropdow-btn">here</button>
+                        <div class="dropdown-content" aria-expanded="false">
+                            <span id="light-theme">
+                                <svg id="light-theme-icon"></svg>Light Theme
+                            </span>
+                            <span id="dark-theme">
+                                <svg id="dark-theme-icon"></svg>Dark Theme
+                            </span>
+                        </div>
+                    </div>
             </div>
         </header>
         <main>
         <div class="books">
+            <h3 class="section-header">Browse our books</h3>
         </div>
-        <div class="anouncements | aside-main">
-            <div class="anouncement"></div>
-        </div>
-        <div class="daily-recommendation | aside-main">
+        <section class="announcements | aside-main">
+            <h3 class="section-header">Announcements</h3>
+            <div class="announcement"></div>
+        </section>
+        <section class="daily-recommendation | aside-main">
+            <h3 class="section-header">Daily Recommendation</h3>
             We recommend <span class="recommendation-title"></span> by <span class="recommendation-author"></span>.
             <p class="recommendation-text"></p>
             Want to give it a try? <a href="#" class="recommendation-link">Click here</a> for more details.
-        </div>
+        </section>
         </main>
     </div>
     <footer class="website-footer">
         <span class="webpage-by">Created by <a href="https://github.com/I-zme">I-zme</a> for <a href="https://www.theodinproject.com/">The Odin Project</a></span>
         <div class="attribution"></div>
     </footer>
+
 </body>
 </html>

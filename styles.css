@@ -104,46 +104,58 @@ body{
     grid-row: 1;
     background-color: rgb(191, 233, 233);
     padding: 1em;
+    display: grid;
+    gap: 1em;
 }
 
 
 .header-top{
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr auto;
+    justify-items: center;
 }
 
 .header-top .logo{
-    grid-column: 1;
-    grid-row: 1;
     font-size: 3rem;
 }
 
-.header-top .motto{
-    grid-column: 1;
-    grid-row: 2;
-}
-
-.header-top > .website-theme{
-    justify-self: center;
-    align-self: center;
-    grid-column: 2;
-    grid-row: 1;
-    display: flex;
-    gap: 1em;
-}
-
-.website-theme > svg{
-    height: 40px;
-    width: 40px;
-    background-color: aliceblue;
-}
 
 .header-bottom{
     display: flex;
     justify-content: flex-end;
     gap: 1em;
 }
+
+.header-bottom .website-theme{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.dropdown-content[data-visible]{
+    display: block;
+}
+
+.dropdown-content > span{
+    color: black;
+    display: block;
+    background-color: #f1f1f1;
+    min-width: max-content;
+    padding: .5em;
+}
+
+.dropdown-content > span> svg{
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+}
+
+
 
 main{
     display: grid;
@@ -157,7 +169,7 @@ main{
     background-color: rgb(247, 218, 174);
 }
 
-.anouncements{
+.announcements{
     grid-column: 2;
     grid-row: 1;
 }
@@ -168,3 +180,21 @@ main{
 }
 
 /* UTILITIES */
+
+.section-header{
+    text-align: center;
+    font-weight: 700;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width:50em){
+    .primary-header{
+        background-color: blue;
+    }
+
+    .primary-header .header-bottom{
+        justify-content: center;
+    }
+}
