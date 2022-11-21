@@ -1,7 +1,7 @@
 /* VARS */
 
 :root{
-
+--nav-min-width:70px
 }
 
 
@@ -79,9 +79,10 @@ svg {
 
 body{
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: var(--nav-min-width) 4fr;
 }
 
+/* SIDEBAR */
 .sidebar{
     --_bar-spacing:1em;
     --nav-toggle-size:50px;
@@ -90,45 +91,72 @@ body{
     grid-column: 1;
     grid-row: 1/-2;
     background-color: antiquewhite;
-    padding: var(--_bar-spacing) 0;
-}
+    padding: var(--_bar-spacing) 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--_bar-spacing);
+    align-items: center;
+    /* font-weight: 600; */
+} 
 
 .sidebar>button{
     all: unset;
     cursor: pointer;
-    margin-bottom: var(--_bar-spacing);
 }
 
 .sidebar > ul{
     display: grid;
-    gap: var(--_bar-spacing);
+    gap: inherit;
+    list-style: none;
 }
 
 .sidebar li>a, .sidebar>button{
     display: flex;
     align-items: center;
     gap: var(--_bar-spacing);
-    padding: 0 var(--_nav-img-size);
     text-decoration: none;
     color: black;
 }
 
-.sidebar>button>img{
+.sidebar>button>img#nav-toggle-img{
+    content:url("./img/close-book.svg");
     height: var(--nav-toggle-size);
     width: var(--nav-toggle-size);
 }
+
+.sidebar>button[data-expanded]>img#nav-toggle-img {
+    content: url("./img/open-book.svg");
+}
+
 
 .sidebar .nav-img{
     height: var(--_nav-img-size);
     width: var(--_nav-img-size);
 }
 
+.sidebar li>a:hover, .sidebar button:hover{
+    filter: drop-shadow(1px 1px 1px rgb(45, 45, 45));
+}
+
+.sidebar .page-name,
+.sidebar>button>span {
+    display: none;
+}
+
+.sidebar > .nav-toggle[data-expanded] >span,
+.sidebar>.nav-toggle[data-expanded] + ul .page-name{
+    display: inline-block;
+}
+
+/* FOOTER */
 .website-footer{
     grid-column: 1/-1;
     grid-row: -1;
     background-color: rgb(148, 152, 152);
 }
 
+/* HEADER AND MAIN */
 .container{
     height: auto;
     display: grid;
@@ -237,4 +265,6 @@ main{
     .primary-header .header-bottom{
         justify-content: center;
     }
+
+    
 }
