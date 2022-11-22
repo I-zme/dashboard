@@ -169,48 +169,56 @@ body{
     background-color: rgb(191, 233, 233);
     padding: 1em;
     display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1em;
 }
 
-.header-top{
+.header-A{
     display: grid;
+}
+
+.header-A .logo{
+    font-size: 3rem;
+    margin-top: -1rem;
+}
+
+.header-B{
+    display: grid;
+    gap: 1rem;
     justify-items: center;
 }
 
-.header-top .logo{
-    font-size: 3rem;
-}
-
-.header-bottom{
+.header-B > .top-container{
     display: flex;
-    justify-content: flex-end;
-    gap: 1em;
-}
-
-.header-bottom > .search > img {
-    height: 30px;
-    width: 30px;
+    gap: 1rem;
+    justify-content: center;
 }
 
 /* search button */
-.search-wrapper{
-    min-width: 40ch;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 0.3em 0.5em;
-    box-shadow: 0 0 1px 0 rgb(220, 220, 220);
-}
+form.search-bar{
+    --_search-icn-size:1.5rem;
 
-form[role="search"]{
     display: flex;
     gap: 0.2em;
+    min-height: calc(var(--_search-icn-size)*1.5);
+    height: 1rem;
+    min-width: min(40ch, 100%);
+    max-width: 55ch;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.3rem 0.5rem;
+    box-shadow: 0 0 1px 0 rgb(220, 220, 220);
+    border-radius: 15px;    
 }
 input[type="search"].search-input{
     flex-grow: 1;
     background: none;
     border: none;
     border-radius: 15px;
-    padding: 0.2em 0.5em;
+    padding: .5rem 0.5em;
+}
+
+form.search-bar:focus-within{
+    height: 3rem;
 }
 
 .search-submit{
@@ -244,13 +252,13 @@ input[type="search"]:-ms-input-placeholder {
 }
 
 .search-submit>img{
-    height: 1.5em;
+    height: var(--_search-icn-size);
 }
 
 
 
 /* theme toggle button */
-.header-bottom .website-theme{
+.header-B .website-theme{
     position: relative;
     display: inline-block;
 }
@@ -317,9 +325,14 @@ main{
 @media (max-width:50em){
     .primary-header{
         background-color: blue;
+        grid-template-columns: 1fr;
     }
 
-    .primary-header .header-bottom{
+    .primary-header .header-A{
+        justify-content: center;
+    }
+
+    .primary-header .header-B{
         justify-content: center;
     }
 
