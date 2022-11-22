@@ -6,6 +6,14 @@ themeToggle.addEventListener('click',()=>{
 
 })
 
+document.addEventListener('click',(e)=>{
+    if(!themeToggle.contains(e.target) && themeDropDown.hasAttribute('data-visible')){
+        themeToggle.click()
+    }
+});
+
+
+
 const navToggle = document.querySelector('.nav-toggle');
 navToggle.addEventListener('click',()=>{
     navToggle.toggleAttribute('data-expanded')
