@@ -274,15 +274,6 @@ input[type="search"]:-ms-input-placeholder {
     z-index: 1;
 }
 
-.theme-dropdow-btn{
-    display: flex;  
-    align-items: center;
-}
-
-.theme-dropdow-btn > img{
-    height: 1.5em;
-}
-
 .dropdown-content[data-visible]{
     display: grid;
     background-color: #fff;
