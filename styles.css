@@ -80,7 +80,7 @@ svg {
 body{
     display: grid;
     grid-template-columns: var(--nav-min-width) 4fr;
-}
+    }
 
 /* SIDEBAR */
 .sidebar{
@@ -191,6 +191,63 @@ body{
     height: 30px;
     width: 30px;
 }
+
+/* search button */
+.search-wrapper{
+    min-width: 40ch;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.3em 0.5em;
+    box-shadow: 0 0 1px 0 rgb(220, 220, 220);
+}
+
+form[role="search"]{
+    display: flex;
+    gap: 0.2em;
+}
+input[type="search"].search-input{
+    flex-grow: 1;
+    background: none;
+    border: none;
+    border-radius: 15px;
+    padding: 0.2em 0.5em;
+}
+
+.search-submit{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+input[type="search"].search-input:focus{
+    outline: none;
+    border: 1px solid rgb(120, 120, 120);
+}
+
+    /* ::placeholder works for all except IE, the -ms-input-placeholder is for IE */
+input[type="search"]::placeholder{
+    color: rgb(120, 120, 120);
+    font-style: italic; 
+}
+
+input[type="search"]:-ms-input-placeholder {
+    color: rgb(120, 120, 120) !important;
+    font-style: italic !important;
+}
+
+.search-submit:hover>img{
+    filter: drop-shadow(0 0 1px rgb(120, 120, 120));
+}
+
+.search-submit:focus>img{
+    filter: drop-shadow(0 0 1px red);
+}
+
+.search-submit>img{
+    height: 1.5em;
+}
+
+
 
 /* theme toggle button */
 .header-bottom .website-theme{

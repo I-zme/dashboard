@@ -29,9 +29,11 @@
                 <p class="motto">A library by users, for users</p>
             </div>
             <div class="header-bottom">
-                <div class="search">
-                    <img src="./img/pretty-search.svg" alt="">
-                    <input type="search" name="search-bar" id="search-bar">
+                <div class="search-wrapper">
+                    <form action="" role="search" id="form">
+                        <input type="search" name="q" id="search" aria-label="Search through the site content" placeholder="Search the site..." class="search-input">
+                        <button type="submit" class="search-submit"><img src="./img/pretty-search.svg" alt=""></button>
+                    </form>
                 </div>
                 <a href="#"><button class="upload | header-button">Upload your story!</button></a>
                 <a href="#"><button class="log-in | header-button">Sign up / Log in</button></a>
