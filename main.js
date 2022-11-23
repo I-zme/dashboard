@@ -1,4 +1,4 @@
-const themeToggle = document.querySelector('.theme-dropdow-btn');
+const themeToggle = document.querySelector('.theme-dropdown-btn');
 const themeDropDown= document.querySelector('.dropdown-content');
 themeToggle.addEventListener('click',()=>{
     themeDropDown.toggleAttribute('data-visible');
