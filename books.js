@@ -156,6 +156,7 @@ flipButtons.forEach(flipper=>{
             bk.classList.remove('bk-viewback');
         }
         else{
+            if(bk.classList.contains('bk-viewinside')){bk.classList.remove('bk-viewinside')}
             bk.classList.add('bk-viewback');
         }
     });
@@ -169,6 +170,7 @@ viewButtons.forEach(viewer=>{
             bk.classList.remove('bk-viewinside');
         }
         else{
+            if(bk.classList.contains('bk-viewback')){bk.classList.remove('bk-viewback')}
             bk.classList.add('bk-viewinside');
         }
     });
