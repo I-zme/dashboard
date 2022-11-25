@@ -1,3 +1,5 @@
+
+// theme dropdown
 const themeToggle = document.querySelector('.theme-dropdown-btn');
 const themeDropDown= document.querySelector('.dropdown-content');
 themeToggle.addEventListener('click',()=>{
@@ -13,7 +15,7 @@ document.addEventListener('click',(e)=>{
 });
 
 
-
+// navbar
 const navToggle = document.querySelector('.nav-toggle');
 navToggle.addEventListener('click',()=>{
     navToggle.toggleAttribute('data-expanded')
@@ -42,6 +44,13 @@ window.addEventListener('resize',()=>{
         }
     }
     else if(!navToggle.hasAttribute('data-expanded')){
+        navToggle.click()
+    }
+})
+
+const navbar = document.querySelector('.sidebar');
+navbar.addEventListener('click',(e)=>{
+    if(e.target===navbar){
         navToggle.click()
     }
 })
