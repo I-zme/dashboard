@@ -2,10 +2,13 @@
 
 :root{
     --nav-min-width:40px;
+    --nav-expanded-width: 250px;
+    --footer-height:100px;
     --border-rd-400: 15px;
     --drop-shdw-700:1px 1px 1px rgb(45, 45, 45);
     --accent-clr-300:rgb(120, 120, 120);
 
+    --nav-width: var(--nav-min-width);
     --size-300:.5rem;
 }
 
@@ -84,8 +87,12 @@ svg {
 
 body{
     display: grid;
-    grid-template-columns: var(--nav-min-width) 4fr;
 }
+
+.flex-container {
+    display: flex;
+}
+
 
 /* SIDEBAR */
 .sidebar{
@@ -93,8 +100,8 @@ body{
     --nav-toggle-size:50px;
     --_nav-img-size:30px;
 
-    grid-column: 1;
-    grid-row: 1/-2;
+    height: 100%;
+    width: var(--nav-width) ;
     background-color: antiquewhite;
     padding: var(--_bar-spacing) 0;
 
@@ -102,6 +109,7 @@ body{
     flex-direction: column;
     gap: var(--_bar-spacing);
     align-items: center;
+    transition: width .3s ease-in-out;
 } 
 
 .sidebar>button{
@@ -155,15 +163,17 @@ body{
 
 /* FOOTER */
 .website-footer{
-    grid-column: 1/-1;
-    grid-row: -1;
+    min-height: fit-content;
+    height: var(--footer-height);
     background-color: rgb(148, 152, 152);
 }
 
 /* HEADER AND MAIN */
 .container{
+    height: 100%;
     height: auto;
     display: grid;
+    flex-grow: 1;
     grid-template-rows: clamp(min-content, 1fr, 300px) minmax(min-content, 4fr);
 }
 

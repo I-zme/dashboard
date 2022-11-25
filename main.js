@@ -20,12 +20,12 @@ const navToggle = document.querySelector('.nav-toggle');
 navToggle.addEventListener('click',()=>{
     navToggle.toggleAttribute('data-expanded')
     if(navToggle.hasAttribute('data-expanded')){
-         navToggle.setAttribute('aria-expanded', "true") 
-        document.body.style = 'grid-template-columns: minmax(max-content, 1fr) 4fr;';
+        navToggle.setAttribute('aria-expanded', "true") 
+        document.querySelector(':root').style = '--nav-width: var(--nav-expanded-width);';
     }
     else{
         navToggle.setAttribute('aria-expanded', "false")
-        document.body.style = 'grid-template-columns: var(--nav-min-width) 4fr;';
+        document.querySelector(':root').style = '--nav-width: var(--nav-min-width);';
     }
 
 })

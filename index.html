@@ -12,65 +12,67 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="sidebar">
-        <button class="nav-toggle" aria-label="expand and collapse navigational sidebar" aria-expanded="false"><img id="nav-toggle-img" alt="" ><span>CoLibrary</span></button>
-        <ul class="side-list">
-            <li class="lbr-page" id="home"><a href="./index.html"><img class="nav-img" src="./img/home.svg" alt="" aria-label="home page"><span class="page-name">Home</span></a></li>
-            <li class="lbr-page" id="about"><a href="#"><img class="nav-img" src="./img/bookshelf.svg" alt="" aria-label="about us"><span class="page-name">About Us</span></a></li>
-            <li class="lbr-page" id="advanced-search"><a href="#"><img src="./img/magnify.svg" alt="" class="nav-img" aria-label="Advanced search"><span class="page-name">Advanced Search</span></a></li>
-            <li class="lbr-page" id="upload"><a href="#"><img src="./img/book-arrow-up.svg" alt="" class="nav-img" aria-label="upload your own story"><span class="page-name">Upload Your Story</span></a></li>
-            <li class="lbr-page" id="events"><a href="#"><img src="./img/calendar-star.svg" alt="" class="nav-img" aria-label="events"><span class="page-name">Events</span></a></li>
-            <li class="lbr-page" id="jobs"><a href="#"><img src="./img/briefcase-outline.svg" alt="" class="nav-img" aria-label="jobs"><span class="page-name">Jobs</span></a></li>
-            <li class="lbr-page" id="settings"><a href="#"><img src="./img/cog.svg" alt="" class="nav-img" aria-label="settings"><span class="page-name">Settings</span></a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <header class="primary-header">
-            <div class="header-A">
-                <div class="logo"><img src="" alt="">CoLibrary</div>
-                <p class="motto">A library by users, for users</p>
-            </div>
-            <div class="header-B">
-                <div class="top-container">
-                    <a href="#"><button class="upload | rnd-btn">Upload your story!</button></a>
-                    <a href="#"><button class="log-in | rnd-btn">Sign up / Log in</button></a>
-                    <div class="website-theme">
-                        <button class="theme-dropdown-btn | rnd-btn">&#8942;<span class="visually-hidden">Themes</span></button>
-                        <div class="dropdown-content" aria-expanded="false">
-                            <span id="light-theme">
-                                <img src="./img/glasses.svg" alt="" id="light-theme-icon">
-                                Light Theme
-                            </span>
-                            <span id="dark-theme">
-                                <img src="./img/sunglasses.svg" alt="" id="dark-theme-icon">
-                                Dark Theme
-                            </span>
+    <div class="flex-container">
+        <nav class="sidebar">
+            <button class="nav-toggle" aria-label="expand and collapse navigational sidebar" aria-expanded="false"><img id="nav-toggle-img" alt="" ><span>CoLibrary</span></button>
+            <ul class="side-list">
+                <li class="lbr-page" id="home"><a href="./index.html"><img class="nav-img" src="./img/home.svg" alt="" aria-label="home page"><span class="page-name">Home</span></a></li>
+                <li class="lbr-page" id="about"><a href="#"><img class="nav-img" src="./img/bookshelf.svg" alt="" aria-label="about us"><span class="page-name">About Us</span></a></li>
+                <li class="lbr-page" id="advanced-search"><a href="#"><img src="./img/magnify.svg" alt="" class="nav-img" aria-label="Advanced search"><span class="page-name">Advanced Search</span></a></li>
+                <li class="lbr-page" id="upload"><a href="#"><img src="./img/book-arrow-up.svg" alt="" class="nav-img" aria-label="upload your own story"><span class="page-name">Upload Your Story</span></a></li>
+                <li class="lbr-page" id="events"><a href="#"><img src="./img/calendar-star.svg" alt="" class="nav-img" aria-label="events"><span class="page-name">Events</span></a></li>
+                <li class="lbr-page" id="jobs"><a href="#"><img src="./img/briefcase-outline.svg" alt="" class="nav-img" aria-label="jobs"><span class="page-name">Jobs</span></a></li>
+                <li class="lbr-page" id="settings"><a href="#"><img src="./img/cog.svg" alt="" class="nav-img" aria-label="settings"><span class="page-name">Settings</span></a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <header class="primary-header">
+                <div class="header-A">
+                    <div class="logo"><img src="" alt="">CoLibrary</div>
+                    <p class="motto">A library by users, for users</p>
+                </div>
+                <div class="header-B">
+                    <div class="top-container">
+                        <a href="#"><button class="upload | rnd-btn">Upload your story!</button></a>
+                        <a href="#"><button class="log-in | rnd-btn">Sign up / Log in</button></a>
+                        <div class="website-theme">
+                            <button class="theme-dropdown-btn | rnd-btn">&#8942;<span class="visually-hidden">Themes</span></button>
+                            <div class="dropdown-content" aria-expanded="false">
+                                <span id="light-theme">
+                                    <img src="./img/glasses.svg" alt="" id="light-theme-icon">
+                                    Light Theme
+                                </span>
+                                <span id="dark-theme">
+                                    <img src="./img/sunglasses.svg" alt="" id="dark-theme-icon">
+                                    Dark Theme
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    <form action="" class="search-bar bottom-container | rnd-btn" role="search" id="form">
+                        <input type="search" name="q" id="search" aria-label="Search through the site content" placeholder="Search the site..." class="search-input">
+                        <button type="submit" class="search-submit"><img src="./img/pretty-search.svg" alt=""></button>
+                    </form>
                 </div>
-                <form action="" class="search-bar bottom-container | rnd-btn" role="search" id="form">
-                    <input type="search" name="q" id="search" aria-label="Search through the site content" placeholder="Search the site..." class="search-input">
-                    <button type="submit" class="search-submit"><img src="./img/pretty-search.svg" alt=""></button>
-                </form>
+            </header>
+            <main>
+            <div class="books">
+                <h3 class="section-header">Browse our books</h3>
             </div>
-        </header>
-        <main>
-        <div class="books">
-            <h3 class="section-header">Browse our books</h3>
+            <section class="announcements | aside-main">
+                <h3 class="section-header">Announcements</h3>
+                <div class="announcement"></div>
+            </section>
+            <section class="daily-recommendation | aside-main">
+                <h3 class="section-header">Daily Recommendation</h3>
+                We recommend <span class="recommendation-title"></span> by <span class="recommendation-author"></span>.
+                <p class="recommendation-text"></p>
+                Want to give it a try? <a href="#" class="recommendation-link">Click here</a> for more details.
+            </section>
+            </main>
         </div>
-        <section class="announcements | aside-main">
-            <h3 class="section-header">Announcements</h3>
-            <div class="announcement"></div>
-        </section>
-        <section class="daily-recommendation | aside-main">
-            <h3 class="section-header">Daily Recommendation</h3>
-            We recommend <span class="recommendation-title"></span> by <span class="recommendation-author"></span>.
-            <p class="recommendation-text"></p>
-            Want to give it a try? <a href="#" class="recommendation-link">Click here</a> for more details.
-        </section>
-        </main>
     </div>
+    
     <footer class="website-footer">
         <span class="webpage-by">Created by <a href="https://github.com/I-zme">I-zme</a> for <a href="https://www.theodinproject.com/">The Odin Project</a></span>
         <div class="attribution"></div>
