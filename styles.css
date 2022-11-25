@@ -164,7 +164,7 @@ body{
 .container{
     height: auto;
     display: grid;
-    grid-template-rows: 1fr minmax(min-content, 4fr);
+    grid-template-rows: clamp(min-content, 1fr, 300px) minmax(min-content, 4fr);
 }
 
 /* HEADER */

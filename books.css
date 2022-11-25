@@ -281,14 +281,39 @@
     font-weight: 700;
 }
 
-.bk-book,
-.bk-front>div,
-.bk-back,
-.bk-left,
-.bk-front::after {
-    background-color: #ff924a;
+
+/* book colors */
+.books > div:nth-of-type(even) > .bk-book,
+.books > div:nth-of-type(even) > .bk-book > .bk-front > div,
+.books > div:nth-of-type(even) > .bk-book > .bk-back,
+.books > div:nth-of-type(even) > .bk-book > .bk-left,
+.books > div:nth-of-type(even) > .bk-book > .bk-front::after {
+    background-color: #a27b51;
 }
 
+.books>div:nth-of-type(odd)>.bk-book,
+.books>div:nth-of-type(odd)>.bk-book>.bk-front>div,
+.books>div:nth-of-type(odd)>.bk-book>.bk-back,
+.books>div:nth-of-type(odd)>.bk-book>.bk-left,
+.books>div:nth-of-type(odd)>.bk-book>.bk-front::after {
+    background-color: #87ae79;
+}
+
+.books>div:nth-of-type(3n)>.bk-book,
+.books>div:nth-of-type(3n)>.bk-book>.bk-front>div,
+.books>div:nth-of-type(3n)>.bk-book>.bk-back,
+.books>div:nth-of-type(3n)>.bk-book>.bk-left,
+.books>div:nth-of-type(3n)>.bk-book>.bk-front::after {
+    background-color: #799fae;
+}
+
+.books>div:nth-of-type(4n)>.bk-book,
+.books>div:nth-of-type(4n)>.bk-book>.bk-front>div,
+.books>div:nth-of-type(4n)>.bk-book>.bk-back,
+.books>div:nth-of-type(4n)>.bk-book>.bk-left,
+.books>div:nth-of-type(4n)>.bk-book>.bk-front::after {
+    background-color: #c09ad3;
+}
 
 /* buttons */
 .info-div {

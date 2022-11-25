@@ -92,11 +92,12 @@ class Book {
         const h2Bind = document.createElement('h2');
         const bookAuthorBind = document.createElement('span');
         bookAuthorBind.classList.add('author-name-bind');
-        bookAuthorBind.textContent = this.author;
+        bookAuthorBind.textContent = (this.author.length + this.title.length >= 40) ? this.author.split(' ').reverse()[0] : this.author;
 
         const bookTitleBind = document.createElement('span');
         bookTitleBind.classList.add('title-name-bind');
-        bookTitleBind.textContent = this.title;
+        bookTitleBind.textContent =  (this.author.split(' ').reverse()[0].length + this.title.length >= 40) ? '': this.title;
+
 
         h2Bind.append(bookAuthorBind, bookTitleBind);
         bookLeft.append(h2Bind);
@@ -137,17 +138,60 @@ class Book {
     }
 }
 
-const PrideNPrejudice = new Book('Pride and Prejudice', 'Jane Austen', "Pride and Prejudice is an 1813 novel of manners by Jane Austen. The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.", "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.");
 
-PrideNPrejudice.addBook()
+// add books to the site
 
-const Pride2 = new Book('Pride and Prejudice', 'Jane Austen', "Pride and Prejudice is an 1813 novel of manners by Jane Austen. The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.", "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.")
+const bookList = [
+    {
+        title: "Some Stories Are Like That",
+        author: "Alberta DeBrittany",
+        summary:"An exploration into the conciousness of a dolphin during its life at a water park, from capture, performances and the the day to day with its 'masters'.",
+        quote: "The fish here taste different, an empty sort of flavour, do I taste empty now too?",
+    },
 
-Pride2.addBook()
+    {
+        title: "Judas, Preach",
+        author: "Max Bogus",
+        summary:"A satiric comedy about the last supper from the perspective of Judas.",
+        quote: "J raises his glass and tells of the importance of forgiveness, I think he knows, the bastard.",
+    },
 
-const Pride3 = new Book('Pride and Prejudice', 'Jane Austen', "Pride and Prejudice is an 1813 novel of manners by Jane Austen. The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.", "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.")
+    {
+        title:"Nomadish",
+        author: "Gaming Nomad",
+        summary: "A quick guide to following your dreams and remembering the importance of play.",
+        quote: "Yeahh Bebyyyyy!",
+    },
 
-Pride3.addBook()
+    {
+        title: "Working with the Dead",
+        author: "Frank Enstein",
+        summary: "A moving, gruesome, often hilarious, collection of poems about the cadavers in the morgue where the author used to work as a young man.",
+        quote: "She had beautiful eyes, I scooped them out for safekeeping.",
+    },
+
+    {
+        title: "A Genesis",
+        author: "Ernst McGreggor",
+        summary:"In his self-proclaimed magnum opus debute book, McGreggor tells the story of Aidan and Evett, founders of the First People - a race of beautiful pale bionic creatures, as they venture through existence seeking always to redeem their past mistakes and return home.",
+        quote: "'Oh Aidan, are we doomed?' asked Evett, sobbing artificial tears of recycled water from her cooling system, her beautiful man-made eyes shining.",
+    },
+
+    // {
+    //     title:,
+    //     author:,
+    //     summary:,
+    //     quote:,
+    // },
+]
+
+
+bookList.forEach(book=>{
+    let aBook = new Book(book.title, book.author, book.summary, book.quote);
+    aBook.addBook()
+})
+
+
 
 // event listeners
 const flipButtons = document.querySelectorAll('.flip-btn');
@@ -170,7 +214,6 @@ flipButtons.forEach(flipper=>{
 viewButtons.forEach(viewer=>{
     viewer.addEventListener('click',()=>{
         let bk = viewer.parentElement.previousSibling;
-        console.log(bk)
         if(bk.classList.contains('bk-viewinside')){
             bk.classList.remove('bk-viewinside');
         }
@@ -180,3 +223,31 @@ viewButtons.forEach(viewer=>{
         }
     });
 })
+
+
+const bookFronts = document.querySelectorAll('.bk-front');
+bookFronts.forEach(fronter=>{
+    fronter.addEventListener('click',()=>{
+        let infoDivBtnList = fronter.parentElement.nextSibling.childNodes
+        let btn = Array.from(infoDivBtnList).find(node => node.classList.contains('flip-btn'))
+        btn.click()
+    });
+});
+
+const bookBacks = document.querySelectorAll('.bk-back');
+bookBacks.forEach(backer=>{
+    backer.addEventListener('click',()=>{
+        let infoDivBtnList = backer.parentElement.nextSibling.childNodes
+        let btn = Array.from(infoDivBtnList).find(node => node.classList.contains('view-btn'))
+        btn.click()
+    });
+});
+
+const bookPages = document.querySelectorAll('.bk-page');
+bookPages.forEach(pager=>{
+    pager.addEventListener('click',()=>{
+        let infoDivBtnList = pager.parentElement.nextSibling.childNodes
+        let btn = Array.from(infoDivBtnList).find(node => node.classList.contains('view-btn'))
+        btn.click()
+    });
+});
