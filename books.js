@@ -123,10 +123,10 @@ class Book {
         infoContainer.classList.add('info-div')
         const flipButton = document.createElement('button');
         flipButton.classList.add('flip-btn');
-        flipButton.textContent = "flip";
+        flipButton.textContent = "summary";
         const viewButton = document.createElement('button');
         viewButton.classList.add('view-btn');
-        viewButton.textContent = "view inside"
+        viewButton.textContent = "quote"
         const infoButton = document.createElement('button');
         infoButton.classList.add('info-btn');
         infoButton.textContent = "more information"
