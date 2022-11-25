@@ -141,8 +141,13 @@ const PrideNPrejudice = new Book('Pride and Prejudice', 'Jane Austen', "Pride an
 
 PrideNPrejudice.addBook()
 
+const Pride2 = new Book('Pride and Prejudice', 'Jane Austen', "Pride and Prejudice is an 1813 novel of manners by Jane Austen. The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.", "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.")
 
+Pride2.addBook()
 
+const Pride3 = new Book('Pride and Prejudice', 'Jane Austen', "Pride and Prejudice is an 1813 novel of manners by Jane Austen. The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.", "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.")
+
+Pride3.addBook()
 
 // event listeners
 const flipButtons = document.querySelectorAll('.flip-btn');

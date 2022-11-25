@@ -308,7 +308,27 @@ main{
 }
 
 /* BOOKS */
-/* separate file >> books.css */
+/* separate file for .bk-div styling >> books.css */
+
+.books {
+    grid-column: 1;
+    grid-row: 1/-1;
+    background-color: rgb(247, 218, 174);    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--bk-width), 1fr));
+    grid-template-rows: min-content;
+    grid-auto-rows: auto;
+    padding: 1rem;
+    row-gap: 3rem;
+    column-gap: 1rem;
+    justify-items: center;
+    justify-content: center;
+}
+
+.books > h3 {
+    grid-column: 1/-1;
+    grid-row: 1;
+}
+
 
 /*  */
 .announcements{
@@ -374,16 +394,14 @@ main{
     }
     
     .announcements{
-        grid-column: 1;
-        grid-row: 1;
+        grid-area: 1/ 1;
     }
     .daily-recommendation{
-        grid-row: 2;
-        grid-column: 1;
+        grid-area: 2 /1;
     }
 
     .books{
-        grid-area: 3/1;
+        grid-area: 3 / 1;
     }
 }
 

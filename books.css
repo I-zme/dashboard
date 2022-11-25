@@ -1,10 +1,4 @@
-.books {
-    grid-column: 1;
-    grid-row: 1/-1;
-    background-color: rgb(247, 218, 174);
-}
-
-.bk-book {
+:root{
     --bk-height: 320px;
     --bk-width: 240px;
     --bk-inner-width: 235px;
@@ -14,7 +8,18 @@
     --bk-side-width: 30px;
     --bk-transition: transform .5s;
     --bk-clr-shdw: rgba(0, 0, 0, 0.1);
+}
 
+
+.bk-div {
+    height: fit-content;
+    width: fit-content;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+}
+
+.bk-book {
     height: var(--bk-height);
     width: var(--bk-width);
     -webkit-transform-style: preserve-3d;
@@ -282,4 +287,28 @@
 .bk-left,
 .bk-front::after {
     background-color: #ff924a;
+}
+
+
+/* buttons */
+.info-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:.5rem;
+}
+
+.info-div > button {
+    background-color: #fff;
+    padding: 0.2em 0.5em;
+    border: none;
+    border-radius: 3px;
+}
+
+.info-div > button:hover {
+    background-color: rgb(185, 184, 184);
+}
+
+.info-div > button:active {
+    background-color: rgb(100, 100, 100);
 }
