@@ -54,3 +54,103 @@ navbar.addEventListener('click',(e)=>{
         navToggle.click()
     }
 })
+
+
+// announcements
+
+class Announcement {
+    constructor(text){
+        this.text = text;
+    }
+
+    addAnnouncement() {
+        const container = document.querySelector('.announcements-container');
+        
+        const postit = document.createElement('div');
+        postit.classList.add('post-it');
+        const postitInner = document.createElement('div');
+        postitInner.classList.add('post-it-inner');
+        postitInner.textContent = this.text;
+
+        postit.append(postitInner);
+        container.append(postit);
+    }
+}
+
+
+const announcementsList = [
+    {
+        text: "CoLibrary is open for business, now with a brand new website!",
+    },
+
+    {
+        text: "Join us for our first webinar on December 3rd with author Allan Van Kronen for a lecture about how he wrote 50 books in 50 days!",
+    },
+    {
+        text: "Join us for our first webinar on December 3rd with author Allan Van Kronen for a lecture about how he wrote 50 books in 50 days!",
+    },
+    {
+        text: "Join us for our first webinar on December 3rd with author Allan Van Kronen for a lecture about how he wrote 50 books in 50 days!",
+    },
+
+    // {
+    //     text:,
+    // },
+]
+
+announcementsList.forEach(item=>{
+    let anouncementPostit = new Announcement(item.text);
+    anouncementPostit.addAnnouncement();
+})
+
+// making the announcements container scrollable with thumbnails and arrows
+const annoucementsContainer = document.querySelector('.announcements-container');
+const announcementsWidth = parseInt(getComputedStyle(document.body).getPropertyValue('--post-it-size'),10);
+
+const thumbnailContainer = document.querySelector('.thumbnails-container');
+function hightlightThumbnails(){
+    thumbnailContainer
+        .querySelectorAll('.thumbnail.highlighted')
+        .forEach(elem => elem.classList.remove('highlighted'));
+    const index = Math.floor(annoucementsContainer.scrollLeft / announcementsWidth);
+    thumbnailContainer
+        .querySelector(`div[data-id="${index}"]`)
+        .classList.add('highlighted');
+}
+
+function scrollToElement(elem) {
+    const index = parseInt(elem.dataset.id, 10);
+    annoucementsContainer.scrollTo(index * announcementsWidth,0);
+}
+
+const announcementSlides = document.querySelectorAll('.post-it')
+thumbnailContainer.innerHTML += [...announcementSlides]
+    .map((slide, i)=>  `<div class="thumbnail" data-id="${i}"></div>`)
+    .join('');
+
+
+thumbnailContainer.querySelectorAll('.thumbnail').forEach(elem => {
+    elem.addEventListener('click',()=>{
+        scrollToElement(elem)
+    });
+});
+
+annoucementsContainer.addEventListener('scroll', event => hightlightThumbnails());
+
+const anouncementNavigation = document.querySelector('.post-it-navigation');
+const leftArrow = document.querySelector('button.left-arrow');
+const rightArrow = anouncementNavigation.querySelector('.right-arrow');
+
+leftArrow.addEventListener('click', ()=>{
+    const elem = thumbnailContainer.querySelector('.thumbnail.highlighted').previousSibling;
+    scrollToElement(elem)
+})
+
+rightArrow.addEventListener('click', ()=>{
+    const elem = thumbnailContainer.querySelector('.thumbnail.highlighted').nextSibling;
+    scrollToElement(elem);
+})
+
+
+
+
