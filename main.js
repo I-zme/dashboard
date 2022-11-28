@@ -152,5 +152,22 @@ rightArrow.addEventListener('click', ()=>{
 })
 
 
+const firstThumbnail = thumbnailContainer.firstElementChild
+const lastThumbnail = thumbnailContainer.lastElementChild
 
+function arrowClassCallback(mutationsList, arrow) {
+    mutationsList.forEach(mutation =>{
+        if(mutation.target.classList.contains('highlighted')) {
+            arrow.setAttribute('disabled','')
+        }
+        else {
+            arrow.removeAttribute('disabled','')
+        }
+    })
+}
 
+const firstChildMutationer = new MutationObserver(mutationsList => arrowClassCallback(mutationsList, leftArrow))
+const lastChildMutationer = new MutationObserver(mutationsList => arrowClassCallback(mutationsList, rightArrow))
+
+firstChildMutationer.observe(firstThumbnail, {attributes: true})
+lastChildMutationer.observe(lastThumbnail, {attributes: true})

@@ -11,7 +11,7 @@
     --nav-width: var(--nav-min-width);
     --size-300:.5rem;
     --post-it-size:250px;
-    --post-it-spacing: 10px
+    --post-it-spacing: 10px;
 }
 
 
@@ -411,6 +411,7 @@ button.expand-tack{
 .thumbnails-container {
     display: flex;
     gap: 0.2rem;
+    flex-wrap: wrap;
 }
 
 .thumbnails-container .thumbnail {
@@ -431,6 +432,7 @@ button.expand-tack{
     justify-content: space-between;
     align-items: center;
 }
+
 
 /* RECOMMENDATION */
 .daily-recommendation{
