@@ -59,9 +59,10 @@ navbar.addEventListener('click',(e)=>{
 // announcements
 
 class Announcement {
-    constructor(title, text){
+    constructor(title, text, link){
         this.title = title,
         this.text = text;
+        this.link = link;
     }
 
     addAnnouncement() {
@@ -76,7 +77,14 @@ class Announcement {
         postitTitle.textContent = this.title;
         postitPara.textContent = this.text;
 
-        postitInner.append(postitTitle, postitPara);
+        const moreInfoButton = document.createElement('button');
+        moreInfoButton.classList.add('post-it-link-btn');
+        moreInfoButton.textContent = "see more...";
+        const announcementLink = document.createElement('a');
+        announcementLink.setAttribute('href', this.link);
+        moreInfoButton.append(announcementLink);
+
+        postitInner.append(postitTitle, postitPara, moreInfoButton);
         postit.append(postitInner);
         container.append(postit);
     }
@@ -87,24 +95,35 @@ const announcementsList = [
     {   
         title: "New Website!!!",
         text: "We changed up some things, but don't worry, it's the same site you know and love :)",
+        link: "#",
     },
 
     {   
         title:"Webinar on December 3rd",
         text: "Join us for our webinar with author Allan Van Kronen for a lecture about how he wrote 50 books in 50 days!",
+        link:"#",
     },
     {   
         title:"New books available in print!",
         text: "Max Bogus, The Rox Sisters, Vera Bong and more now have books available in select shops.",
+        link:"#",
     },
     {   
         title:"One Week to Deadline",
         text: "One more week for the CoLibrary Annual Writing Competition Deadline (October 31st), the subject is 'daily grind', get writing!",
+        link:"#",
+    },
+
+    {
+        title: "A very exciting announcement",
+        text:" This is something exciting and very long dfkjdskf sdjfhsdj fsdjfjs jjh jd sfdud ejjj ajdj jkdsfdjsfh jhjjdf jsj Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque inventore quam blanditiis nesciunt reiciendis numquam libero perferendis quidem facilis vel.",
+        link: "#",
     },
 
     // {
     //     title:,
     //     text:,
+    //     link:,
     // },
 ]
 

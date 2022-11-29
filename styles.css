@@ -129,6 +129,8 @@ body{
     gap: var(--_bar-spacing);
     align-items: center;
     transition: width .3s ease-in-out;
+    -webkit-transition: width .3s ease-in-out;
+    -moz-transition: width .3s ease-in-out;
 } 
 
 .sidebar>button{
@@ -167,6 +169,7 @@ body{
 
 .sidebar li>a:hover, .sidebar button:hover{
     filter: drop-shadow(var(--drop-shdw-700));
+    -webkit-filter: drop-shadow(var(--drop-shdw-700));
 }
 
 .sidebar .page-name,
@@ -265,24 +268,29 @@ input[type="search"].search-input:focus{
     border: 1px solid var(--accent-clr-300);
 }
 
-/* ::placeholder works for all except IE, the -ms-input-placeholder is for IE */
 input[type="search"]::placeholder{
     color: var(--accent-clr-300);
     font-style: var(--_hover-style); 
 }
 
+input[type="search"]::-webkit-input-placeholder {
+    color: var(--accent-clr-300);
+    font-style: var(--_hover-style); 
+}
+
 input[type="search"]:-ms-input-placeholder {
-    /* change at the same time as input[type="search"]::placeholder */
     color: var(--accent-clr-300) !important;
     font-style: var(--_hover-style) !important;
 }
 
 .search-submit:hover>img{
     filter: drop-shadow(var(--drop-shdw-700));
+    -webkit-filter: drop-shadow(var(--drop-shdw-700));
 }
 
 .search-submit:focus>img{
     filter: drop-shadow(0 0 1px red);
+    -webkit-filter: drop-shadow(0 0 1px red);
 }
 
 .search-submit>img{
@@ -397,16 +405,52 @@ main{
     border-width: 5px 3px 3px 5px;
     border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
     transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
     scroll-snap-align: start;
-
     font-family: var(--ff-announcements);
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
 .post-it-inner {
     margin: 15px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    font-size: .875rem;
 }
 
+.post-it-inner h3 {
+    font-weight: 700;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: .5em;
+}
+
+.post-it-inner p {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-it-inner button.post-it-link-btn {
+    background: none;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.post-it-inner button.post-it-link-btn:hover{
+    font-weight: 700;
+}
 
 .announcements-container{
     max-width: calc(var(--post-it-size) + var(--post-it-spacing));
@@ -450,7 +494,9 @@ button.right-arrow {
     --_arrow-position: calc(((100% - var(--post-it-size)) / 2) - 17px);
     position: absolute;
     top: 50%;
-    translate: 0 -40%;
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
     background: transparent;
     border: none;
 }
@@ -459,20 +505,37 @@ button.right-arrow > img,
 button.left-arrow > img {
     --_hover-move-dis:3px;
     --_arrow-height: 50px;
+
     height: var(--_arrow-height);
     filter: drop-shadow(var(--drop-shdw-700));
+    -webkit-filter: drop-shadow(var(--drop-shdw-700));
     transition: all ease-in-out 400ms;
+    -webkit-transition: all ease-in-out 400ms;
+    -moz-transition: all ease-in-out 400ms;
     cursor: pointer;
+}
+
+button.left-arrow {
+    left: var(--_arrow-position);
+}
+
+button.right-arrow {
+    right: var(--_arrow-position);
 }
 
 button.right-arrow:hover>img,
 button.left-arrow:hover>img {
     scale:1.2;
     transform:translateX(var(--_hover-move-dis));
+    -webkit-transform:translateX(var(--_hover-move-dis));
+    -moz-transform:translateX(var(--_hover-move-dis));
+
 }
 
 button.left-arrow:hover>img {
     transform: translateX(calc(-1* var(--_hover-move-dis)));
+    -webkit-transform: translateX(calc(-1* var(--_hover-move-dis)));
+    -moz-transform: translateX(calc(-1* var(--_hover-move-dis)));
 }
 
 button.right-arrow:disabled >img,
@@ -480,17 +543,13 @@ button.right-arrow:disabled:hover >img,
 button.left-arrow:disabled >img,
 button.left-arrow:disabled:hover >img {
     filter: brightness(.8) drop-shadow(var(--drop-shdw-700));
+    -webkit-filter: brightness(.8) drop-shadow(var(--drop-shdw-700));
     transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
     scale: none;
     cursor: default;
     height: calc(var(--_arrow-height) - 10px);
-}
-
-button.left-arrow {
-    left: var(--_arrow-position);
-}
-button.right-arrow {
-    right: var(--_arrow-position);
 }
 
 
