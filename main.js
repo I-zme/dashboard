@@ -59,7 +59,8 @@ navbar.addEventListener('click',(e)=>{
 // announcements
 
 class Announcement {
-    constructor(text){
+    constructor(title, text){
+        this.title = title,
         this.text = text;
     }
 
@@ -70,8 +71,12 @@ class Announcement {
         postit.classList.add('post-it');
         const postitInner = document.createElement('div');
         postitInner.classList.add('post-it-inner');
-        postitInner.textContent = this.text;
+        const postitTitle = document.createElement('h3');
+        const postitPara = document.createElement('p');
+        postitTitle.textContent = this.title;
+        postitPara.textContent = this.text;
 
+        postitInner.append(postitTitle, postitPara);
         postit.append(postitInner);
         container.append(postit);
     }
@@ -79,27 +84,32 @@ class Announcement {
 
 
 const announcementsList = [
-    {
-        text: "CoLibrary is open for business, now with a brand new website!",
+    {   
+        title: "New Website!!!",
+        text: "We changed up some things, but don't worry, it's the same site you know and love :)",
     },
 
-    {
-        text: "Join us for our first webinar on December 3rd with author Allan Van Kronen for a lecture about how he wrote 50 books in 50 days!",
+    {   
+        title:"Webinar on December 3rd",
+        text: "Join us for our webinar with author Allan Van Kronen for a lecture about how he wrote 50 books in 50 days!",
     },
-    {
-        text: "Join us for our first webinar on December 3rd with author Allan Van Kronen for a lecture about how he wrote 50 books in 50 days!",
+    {   
+        title:"New books available in print!",
+        text: "Max Bogus, The Rox Sisters, Vera Bong and more now have books available in select shops.",
     },
-    {
-        text: "Join us for our first webinar on December 3rd with author Allan Van Kronen for a lecture about how he wrote 50 books in 50 days!",
+    {   
+        title:"One Week to Deadline",
+        text: "One more week for the CoLibrary Annual Writing Competition Deadline (October 31st), the subject is 'daily grind', get writing!",
     },
 
     // {
+    //     title:,
     //     text:,
     // },
 ]
 
 announcementsList.forEach(item=>{
-    let anouncementPostit = new Announcement(item.text);
+    let anouncementPostit = new Announcement(item.title, item.text);
     anouncementPostit.addAnnouncement();
 })
 

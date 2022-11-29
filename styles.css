@@ -1,4 +1,19 @@
 /* VARS */
+@font-face {
+    font-family: "Brass Mono";
+    src: url("./fonts/BrassMonoComfortableRegular-XmYK.woff") format("woff"), url("./fonts/BrassMonoCozyRegular-g146.woff") format("woff"), url("./fonts/BrassMonoRegular-o2Yz.woff"), url("woff");
+}
+
+@font-face {
+    font-family: "Mostly Mono";
+    src: url("./fonts/MostlyMono-nr4P.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Select Mono";
+    src: url("./fonts/SelectMonoItalic-ywm8d.woff") format("woff");
+}
+
 
 :root{
     --nav-min-width:40px;
@@ -12,6 +27,8 @@
     --size-300:.5rem;
     --post-it-size:250px;
     --post-it-spacing: 10px;
+
+    --ff-announcements: "Select Mono", monospace;
 }
 
 
@@ -381,12 +398,15 @@ main{
     border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
     transform: rotate(2deg);
     scroll-snap-align: start;
+
+    font-family: var(--ff-announcements);
 }
 
 .post-it-inner {
     margin: 15px;
     transform: rotate(-2deg);
 }
+
 
 .announcements-container{
     max-width: calc(var(--post-it-size) + var(--post-it-spacing));
@@ -427,7 +447,7 @@ main{
 
 button.left-arrow,
 button.right-arrow {
-    --_arrow-position: calc(((100% - var(--post-it-size)) / 2) - 20px);
+    --_arrow-position: calc(((100% - var(--post-it-size)) / 2) - 17px);
     position: absolute;
     top: 50%;
     translate: 0 -40%;
@@ -437,18 +457,18 @@ button.right-arrow {
 
 button.right-arrow > img, 
 button.left-arrow > img {
-    --_hover-move-dis:10px;
-    height: 40px;
-    opacity: .5;
+    --_hover-move-dis:3px;
+    --_arrow-height: 50px;
+    height: var(--_arrow-height);
     filter: drop-shadow(var(--drop-shdw-700));
     transition: all ease-in-out 400ms;
-    
+    cursor: pointer;
 }
 
 button.right-arrow:hover>img,
 button.left-arrow:hover>img {
-    opacity: 1;
-    transform: translateX(var(--_hover-move-dis));
+    scale:1.2;
+    transform:translateX(var(--_hover-move-dis));
 }
 
 button.left-arrow:hover>img {
@@ -459,9 +479,11 @@ button.right-arrow:disabled >img,
 button.right-arrow:disabled:hover >img,
 button.left-arrow:disabled >img,
 button.left-arrow:disabled:hover >img {
-    opacity: .5;
-    filter: grayscale(.7) brightness(.3) drop-shadow(var(--drop-shdw-700));
+    filter: brightness(.8) drop-shadow(var(--drop-shdw-700));
     transform: none;
+    scale: none;
+    cursor: default;
+    height: calc(var(--_arrow-height) - 10px);
 }
 
 button.left-arrow {
