@@ -315,7 +315,8 @@ input[type="search"]:-ms-input-placeholder {
 main{
     display: grid;
     grid-template-columns: 3fr minmax(max-content, 1fr);
-    grid-template-rows: 1fr 1fr auto;
+    grid-template-rows: max-content max-content auto;
+    row-gap: 3rem;
 }
 
 /* BOOKS */
@@ -348,18 +349,15 @@ main{
     display: grid;
     grid-template-rows: repeat(3, min-content);
     justify-content: center;
+    position: relative;
 }
 
-.post-it-permanent {
+.announcement-header {
     font-size: 1.5rem;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    justify-items: center;
-    align-items: center;
-
+    text-align: center;
 }
 
-button.expand-tack{
+/* button.expand-tack{
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -371,7 +369,7 @@ button.expand-tack{
     font-size: 0.875rem;
     color: rgb(45, 45, 45);
     text-shadow: 1px 0px 0px rgb(120, 120, 120);
-}
+} */
 
 .post-it{
     width: var(--post-it-size);
@@ -412,6 +410,7 @@ button.expand-tack{
     display: flex;
     gap: 0.2rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .thumbnails-container .thumbnail {
@@ -426,11 +425,50 @@ button.expand-tack{
     background-color: black;
 }
 
+button.left-arrow,
+button.right-arrow {
+    --_arrow-position: calc(((100% - var(--post-it-size)) / 2) - 20px);
+    position: absolute;
+    top: 50%;
+    translate: 0 -40%;
+    background: transparent;
+    border: none;
+}
 
-.post-it-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+button.right-arrow > img, 
+button.left-arrow > img {
+    --_hover-move-dis:10px;
+    height: 40px;
+    opacity: .5;
+    filter: drop-shadow(var(--drop-shdw-700));
+    transition: all ease-in-out 400ms;
+    
+}
+
+button.right-arrow:hover>img,
+button.left-arrow:hover>img {
+    opacity: 1;
+    transform: translateX(var(--_hover-move-dis));
+}
+
+button.left-arrow:hover>img {
+    transform: translateX(calc(-1* var(--_hover-move-dis)));
+}
+
+button.right-arrow:disabled >img,
+button.right-arrow:disabled:hover >img,
+button.left-arrow:disabled >img,
+button.left-arrow:disabled:hover >img {
+    opacity: .5;
+    filter: grayscale(.7) brightness(.3) drop-shadow(var(--drop-shdw-700));
+    transform: none;
+}
+
+button.left-arrow {
+    left: var(--_arrow-position);
+}
+button.right-arrow {
+    right: var(--_arrow-position);
 }
 
 

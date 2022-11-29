@@ -137,9 +137,9 @@ thumbnailContainer.querySelectorAll('.thumbnail').forEach(elem => {
 
 annoucementsContainer.addEventListener('scroll', event => hightlightThumbnails());
 
-const anouncementNavigation = document.querySelector('.post-it-navigation');
+// const anouncementNavigation = document.querySelector('.post-it-navigation');
 const leftArrow = document.querySelector('button.left-arrow');
-const rightArrow = anouncementNavigation.querySelector('.right-arrow');
+const rightArrow = document.querySelector('button.right-arrow');
 
 leftArrow.addEventListener('click', ()=>{
     const elem = thumbnailContainer.querySelector('.thumbnail.highlighted').previousSibling;
