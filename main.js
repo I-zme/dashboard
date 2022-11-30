@@ -1,3 +1,4 @@
+const root = document.documentElement;
 
 // theme dropdown
 const themeToggle = document.querySelector('.theme-dropdown-btn');
@@ -21,11 +22,11 @@ navToggle.addEventListener('click',()=>{
     navToggle.toggleAttribute('data-expanded')
     if(navToggle.hasAttribute('data-expanded')){
         navToggle.setAttribute('aria-expanded', "true") 
-        document.querySelector(':root').style = '--nav-width: var(--nav-expanded-width);';
+        root.style.setProperty('--nav-width','var(--nav-expanded-width)');
     }
     else{
         navToggle.setAttribute('aria-expanded', "false")
-        document.querySelector(':root').style = '--nav-width: var(--nav-min-width);';
+        root.style.setProperty('--nav-width','var(--nav-min-width)');
     }
 
 })
@@ -200,3 +201,59 @@ const lastChildMutationer = new MutationObserver(mutationsList => arrowClassCall
 
 firstChildMutationer.observe(firstThumbnail, {attributes: true})
 lastChildMutationer.observe(lastThumbnail, {attributes: true})
+
+
+// aside main container
+const asideContainers = document.querySelectorAll('.aside-main');
+const sideContainerAnnouncementsToggle = document.querySelector('button.tab-toggle.announcements-toggle');
+
+function containerToggle(btnToggle,container){
+    container.toggleAttribute('data-collapsed');
+
+    if(container.hasAttribute('data-collapsed')) {
+            container.setAttribute('aria-expanded', 'false');
+            root.style.setProperty('--side-width', 'var(--side-min-width)');
+            btnToggle.textContent = 'Expand';
+        } 
+    else {
+        container.setAttribute('aria-expanded', 'true'); 
+        root.style.setProperty('--side-width', 'var(--side-expanded-width)');
+        btnToggle.textContent = 'Collapse';
+    }
+}
+
+const asideMain = document.querySelector('.aside-main-container');
+asideMain.addEventListener('click', (e)=>{
+    if(e.target.classList.contains('tab-toggle')){
+        if(e.target === sideContainerAnnouncementsToggle && window.matchMedia("(min-width:50em)").matches){
+            asideContainers.forEach(container => containerToggle(sideContainerAnnouncementsToggle, container));
+        }
+        else{
+        containerToggle(e.target, e.target.parentElement);
+        }
+    }
+    else if(e.target=== asideMain){
+        sideContainerAnnouncementsToggle.click();
+    }
+    else if(e.target.classList.contains('aside-header')){
+        if(window.matchMedia('(min-width: 50em)').matches){
+            sideContainerAnnouncementsToggle.click();
+        }
+        else{
+            e.target.parentElement.querySelector('.tab-toggle').click()
+        }
+    }
+    else if(e.target.classList.contains('aside-main')){
+        e.target.parentElement.querySelector('.tab-toggle').click()
+    }
+});
+
+
+window.addEventListener('resize',()=>{
+    asideContainers.forEach(container =>{
+        if(container.hasAttribute('data-collapsed')){
+            containerToggle(container.querySelector('.tab-toggle'),container)
+        }
+    })
+})
+ 

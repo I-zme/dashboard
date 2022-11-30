@@ -59,22 +59,26 @@
             <div class="books">
                 <h3 class="section-header">Browse our books</h3>
             </div>
-            <section class="announcements | aside-main">
-                <h3 class="announcement-header">Announcements</h3>
-                <div class="announcements-container">
-                </div>
-                <button class="left-arrow" aria-label="previous announcement"><img src="./img/arrow-left.svg" alt=""></button>
-                <button class="right-arrow" aria-label="next announcement"><img src="./img/arrow-right.svg" alt=""></button>
-                <div class="thumbnails-container">
-                </div>
-            </section>
-            <section class="daily-recommendation | aside-main">
-                <h3 class="section-header">Daily Recommendation</h3>
-                We recommend <span class="recommendation-title"></span> by <span class="recommendation-author"></span>.
-                <p class="recommendation-text"></p>
-                Want to give it a try? <a href="#" class="recommendation-link">Click here</a> for more details.
-            </section>
-            </main>
+            <aside class="aside-main-container">
+                <section class="announcements | aside-main" aria-expanded="true">
+                    <button class="tab-toggle announcements-toggle">Collapse</button>
+                    <h3 class="announcement-header | aside-header">Announcements</h3>
+                    <div class="announcements-container">
+                    </div>
+                    <button class="left-arrow" aria-label="previous announcement"><img src="./img/arrow-left.svg" alt=""></button>
+                    <button class="right-arrow" aria-label="next announcement"><img src="./img/arrow-right.svg" alt=""></button>
+                    <div class="thumbnails-container">
+                    </div>
+                </section>
+                <section class="daily-recommendation | aside-main" aria-expanded="true">
+                    <button class="tab-toggle recommendation-toggle">Collapse</button>
+                    <h3 class="recommendation-header | aside-header">Daily Recommendation</h3>
+                    <!-- We recommend <span class="recommendation-title"></span> by <span class="recommendation-author"></span>.
+                    <p class="recommendation-text"></p>
+                    Want to give it a try? <a href="#" class="recommendation-link">Click here</a> for more details. -->
+                </section>
+                
+            </aside></main>
         </div>
     </div>
     
