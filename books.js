@@ -1,19 +1,20 @@
 const booksContainer = document.querySelector('.books');
 
 class Book {
-    constructor(title, author, summary, quote){
+    constructor(title, author, summary, quote, tags, link){
         this.title = title;
         this.author = author;
         this.summary = summary;
         this.quote = quote;
+        this.tags = tags;
+        this.link = link;
     }
 
     addBook() {
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('bk-div');
 
-        const bookWrapper = document.createElement('div');
-        bookWrapper.classList.add('bk-book')
+        const bookWrapper = this.createBookWrapper();
         const bookFront = this.createBookCover();
         const bookPage = this.createBookPage();
         const bookBack = this.createBookBack();
@@ -25,6 +26,13 @@ class Book {
         bookWrapper.append(bookFront, bookPage, bookBack, bookRight, bookLeft, bookTop, bookBottom);
         bookDiv.append(bookWrapper, bookButtons);
         booksContainer.append(bookDiv);
+    }
+
+    createBookWrapper() {
+        const bookWrapper = document.createElement('div');
+        bookWrapper.classList.add('bk-book','|', ...this.tags);
+        
+        return bookWrapper
     }
 
     createBookCover(){
@@ -127,11 +135,15 @@ class Book {
         flipButton.textContent = "summary";
         const viewButton = document.createElement('button');
         viewButton.classList.add('view-btn');
-        viewButton.textContent = "quote"
+        viewButton.textContent = "quote";
+        const bookLink = document.createElement('a');
+        bookLink.setAttribute('href',this.link);
+        bookLink.setAttribute('target', "_blank");
         const infoButton = document.createElement('button');
         infoButton.classList.add('info-btn');
-        infoButton.textContent = "more information"
-
+        infoButton.textContent = "more information";
+        
+        bookLink.append(infoButton);
         infoContainer.append(flipButton, viewButton, infoButton);
 
         return infoContainer
@@ -147,6 +159,8 @@ const bookList = [
         author: "Alberta DeBrittany",
         summary:"An exploration into the conciousness of a dolphin during its life at a water park, from capture, performances and the the day to day with its 'masters'.",
         quote: "The fish here taste different, an empty sort of flavour, do I taste empty now too?",
+        tags:['spiritual', 'drama', 'dolphin'],
+        link:"#",
     },
 
     {
@@ -154,6 +168,8 @@ const bookList = [
         author: "Max Bogus",
         summary:"A satiric comedy about the last supper from the perspective of Judas.",
         quote: "J raises his glass and tells of the importance of forgiveness, I think he knows, the bastard.",
+        tags:['comedy', 'satire'],
+        link:"#",
     },
 
     {
@@ -161,6 +177,8 @@ const bookList = [
         author: "Gaming Nomad",
         summary: "A quick guide to following your dreams and remembering the importance of play.",
         quote: "Yeahh Bebyyyyy!",
+        tags:['comedy','self-help','gaming'],
+        link:"#",
     },
 
     {
@@ -168,6 +186,8 @@ const bookList = [
         author: "Frank Enstein",
         summary: "A moving, gruesome, often hilarious, collection of poems about the cadavers in the morgue where the author used to work as a young man.",
         quote: "She had beautiful eyes, I scooped them out for safekeeping.",
+        tags:['comedy','poetry','horror'],
+        link:"#",
     },
 
     {
@@ -175,6 +195,8 @@ const bookList = [
         author: "Ernst McGreggor",
         summary:"In his self-proclaimed magnum opus debute book, McGreggor tells the story of Aidan and Evett, founders of the First People - a race of beautiful pale bionic creatures, as they venture through existence seeking always to redeem their past mistakes and return home.",
         quote: "'Oh Aidan, are we doomed?' asked Evett, sobbing artificial tears of recycled water from her cooling system, her beautiful man-made eyes shining.",
+        tags:['drama','religious','sci-fi'],
+        link:"#",
     },
 
     // {
@@ -182,12 +204,14 @@ const bookList = [
     //     author:,
     //     summary:,
     //     quote:,
+    //     tags:[],
+    //     link:,
     // },
 ]
 
 
 bookList.forEach(book=>{
-    let aBook = new Book(book.title, book.author, book.summary, book.quote);
+    let aBook = new Book(book.title, book.author, book.summary, book.quote, book.tags, book.link);
     aBook.addBook()
 })
 

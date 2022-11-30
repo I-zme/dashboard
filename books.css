@@ -283,36 +283,52 @@
 
 
 /* book colors */
-.books > div:nth-of-type(even) > .bk-book,
-.books > div:nth-of-type(even) > .bk-book > .bk-front > div,
-.books > div:nth-of-type(even) > .bk-book > .bk-back,
-.books > div:nth-of-type(even) > .bk-book > .bk-left,
-.books > div:nth-of-type(even) > .bk-book > .bk-front::after {
+.bk-book,
+.bk-book>.bk-front>div,
+.bk-book>.bk-back,
+.bk-book>.bk-left,
+.bk-book>.bk-front::after {
+    background-color: #a26b51;
+}
+
+.bk-book.comedy,
+.bk-book.comedy > .bk-front > div,
+.bk-book.comedy > .bk-back,
+.bk-book.comedy > .bk-left,
+.bk-book.comedy > .bk-front::after {
     background-color: #a27b51;
 }
 
-.books>div:nth-of-type(odd)>.bk-book,
-.books>div:nth-of-type(odd)>.bk-book>.bk-front>div,
-.books>div:nth-of-type(odd)>.bk-book>.bk-back,
-.books>div:nth-of-type(odd)>.bk-book>.bk-left,
-.books>div:nth-of-type(odd)>.bk-book>.bk-front::after {
+.bk-book.drama,
+.bk-book.drama>.bk-front>div,
+.bk-book.drama>.bk-back,
+.bk-book.drama>.bk-left,
+.bk-book.drama>.bk-front::after {
     background-color: #87ae79;
 }
 
-.books>div:nth-of-type(3n)>.bk-book,
-.books>div:nth-of-type(3n)>.bk-book>.bk-front>div,
-.books>div:nth-of-type(3n)>.bk-book>.bk-back,
-.books>div:nth-of-type(3n)>.bk-book>.bk-left,
-.books>div:nth-of-type(3n)>.bk-book>.bk-front::after {
+.bk-book.self-help,
+.bk-book.self-help>.bk-front>div,
+.bk-book.self-help>.bk-back,
+.bk-book.self-help>.bk-left,
+.bk-book.self-help>.bk-front::after {
     background-color: #799fae;
 }
 
-.books>div:nth-of-type(4n)>.bk-book,
-.books>div:nth-of-type(4n)>.bk-book>.bk-front>div,
-.books>div:nth-of-type(4n)>.bk-book>.bk-back,
-.books>div:nth-of-type(4n)>.bk-book>.bk-left,
-.books>div:nth-of-type(4n)>.bk-book>.bk-front::after {
+.bk-book.sci-fi,
+.bk-book.sci-fi>.bk-front>div,
+.bk-book.sci-fi>.bk-back,
+.bk-book.sci-fi>.bk-left,
+.bk-book.sci-fi>.bk-front::after {
     background-color: #c09ad3;
+}
+
+.bk-book.horror,
+.bk-book.horror>.bk-front>div,
+.bk-book.horror>.bk-back,
+.bk-book.horror>.bk-left,
+.bk-book.horror>.bk-front::after {
+    background-color: #454343;
 }
 
 /* buttons */
