@@ -209,42 +209,48 @@ const sideContainerAnnouncementsToggle = document.querySelector('button.tab-togg
 
 function containerToggle(btnToggle,container){
     container.toggleAttribute('data-collapsed');
-
     if(container.hasAttribute('data-collapsed')) {
-            container.setAttribute('aria-expanded', 'false');
-            root.style.setProperty('--side-width', 'var(--side-min-width)');
-            btnToggle.textContent = 'Expand';
-        } 
+        container.setAttribute('aria-expanded', 'false');
+        root.style.setProperty('--side-width', 'var(--side-min-width)');
+        btnToggle.querySelector('span.visually-hidden').textContent = 'Expand';
+    } 
     else {
         container.setAttribute('aria-expanded', 'true'); 
         root.style.setProperty('--side-width', 'var(--side-expanded-width)');
-        btnToggle.textContent = 'Collapse';
+        btnToggle.querySelector('span.visually-hidden').textContent = 'Collapse';
     }
 }
 
 const asideMain = document.querySelector('.aside-main-container');
 asideMain.addEventListener('click', (e)=>{
-    if(e.target.classList.contains('tab-toggle')){
-        if(e.target === sideContainerAnnouncementsToggle && window.matchMedia("(min-width:50em)").matches){
+    console.log(e.target)
+    if(e.target.closest('.tab-toggle')) {
+        if(sideContainerAnnouncementsToggle.contains(e.target) && window.matchMedia("(min-width:50em)").matches){
             asideContainers.forEach(container => containerToggle(sideContainerAnnouncementsToggle, container));
         }
         else{
-        containerToggle(e.target, e.target.parentElement);
+            containerToggle(e.target, e.target.closest('.aside-main'));
         }
     }
-    else if(e.target=== asideMain){
-        sideContainerAnnouncementsToggle.click();
-    }
-    else if(e.target.classList.contains('aside-header')){
+    else if(e.target.closest('.aside-grid-container')){
         if(window.matchMedia('(min-width: 50em)').matches){
             sideContainerAnnouncementsToggle.click();
         }
         else{
-            e.target.parentElement.querySelector('.tab-toggle').click()
+            e.target.closest('.aside-grid-container').querySelector('.tab-toggle').click()
         }
     }
     else if(e.target.classList.contains('aside-main')){
-        e.target.parentElement.querySelector('.tab-toggle').click()
+        if(window.matchMedia('(min-width: 50em)').matches){
+            sideContainerAnnouncementsToggle.click();
+        }
+        else{
+            console.log('h')
+            e.target.querySelector('.tab-toggle').click()
+        }
+    }
+    else if(e.target=== asideMain){
+        sideContainerAnnouncementsToggle.click();
     }
 });
 

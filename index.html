@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="flex-container">
-        
+
         <nav class="sidebar">
             <button class="nav-toggle" aria-label="expand and collapse navigational sidebar" aria-expanded="false"><img id="nav-toggle-img" alt="" ><span>CoLibrary</span></button>
             <ul class="side-list">
@@ -63,8 +63,10 @@
                 </div>
                 <aside class="aside-main-container">
                     <section class="announcements | aside-main" aria-expanded="true">
-                        <button class="tab-toggle announcements-toggle">Collapse</button>
-                        <h3 class="announcement-header | aside-header">Announcements</h3>
+                        <div class="aside-grid-container">
+                            <button class="tab-toggle announcements-toggle"><img src="./img/Vector 1.svg" alt=""><span class="visually-hidden">Collapse</span></button>
+                            <h3 class="announcement-header | aside-header">Announcements</h3>
+                        </div>
                         <div class="announcements-container">
                         </div>
                         <button class="left-arrow" aria-label="previous announcement"><img src="./img/arrow-left.svg" alt=""></button>
@@ -73,8 +75,10 @@
                         </div>
                     </section>
                     <section class="daily-recommendation | aside-main" aria-expanded="true">
-                        <button class="tab-toggle">Collapse</button>
-                        <h3 class="recommendation-header | aside-header">Daily Recommendation</h3>
+                        <div class="aside-grid-container">
+                            <button class="tab-toggle"><img src="./img/Vector 1.svg" alt=""><span class="visually-hidden">Collapse</span></button>
+                            <h3 class="recommendation-header | aside-header">Daily Recommendation</h3>
+                        </div>
                     </section>  
                 </aside>
             </main>
