@@ -26,6 +26,7 @@
     transform-style: preserve-3d;
     -webkit-transition: -webkit-transform .5s;
     transition: var(--bk-transition);
+    cursor: pointer;
 }
 
 .bk-book>div,

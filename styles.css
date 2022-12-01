@@ -347,8 +347,6 @@ main{
     display: grid;
     grid-template-columns: 3fr var(--side-width);
     transition: all ease-in .4s;
-    /* grid-template-rows: max-content max-content auto; */
-    /* row-gap: 3rem; */
 }
 
 /* BOOKS */
@@ -375,8 +373,15 @@ main{
 }
 
 
-/* SIDE TAB */
-button.tab-toggle {
+/* ASIDE MAIN CONTAINER */
+
+.aside-main > .aside-header {
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.aside-main > button.tab-toggle {
     --tab-height:80px;
     --tab-width:100px;
 
@@ -396,27 +401,24 @@ button.tab-toggle {
     -moz-transform: rotate(90deg);
     cursor: pointer;
     z-index: 1;
-}
 
-button.tab-toggle.recommendation-toggle {
     display: none;
 }
 
+button.tab-toggle.announcements-toggle {
+    display: block;
+}
 
-.announcements[data-collapsed] > .announcements-container,
-.announcements[data-collapsed] >  button.left-arrow,
-.announcements[data-collapsed] >  button.right-arrow,
-.announcements[data-collapsed] >  .thumbnails-container {
+.aside-main[data-collapsed] > :not(button.tab-toggle, .aside-header) {
     display: none;
 }
 
-.announcements[data-collapsed]{
+.aside-main[data-collapsed]{
     height: 12em;
     padding: initial;
 }
 
-.announcements[data-collapsed]>.announcement-header,
-.daily-recommendation[data-collapsed]>.recommendation-header {
+.aside-main[data-collapsed]> .aside-header {
     transform: rotate(90deg) translate(50%);
 }
 
@@ -430,42 +432,6 @@ button.tab-toggle.recommendation-toggle {
     position: relative;
     padding: 1rem 0 3rem 0;
     transition: all ease-in-out .5s;
-}
-
-
-.announcement-header,
-.recommendation-header {
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-@media (max-width: 50em) {
-    button.tab-toggle {
-        transform: rotate(0deg);
-        top: auto;
-        bottom: calc(-.5* var(--tab-height));
-        left: 10px;
-    }
-
-    .announcements[data-collapsed],
-    .daily-recommendation[data-collapsed] {
-        height: min-content;
-        padding: initial;
-    }
-    .announcements[data-collapsed]>.announcement-header,
-    .daily-recommendation[data-collapsed]>.recommendation-header {
-        transform: rotate(0deg);
-    }
-
-    .daily-recommendation{
-        border: 1px solid;
-        background-color: #D9D9D9;
-    }
-    button.tab-toggle.recommendation-toggle {
-        display: block;
-        left: calc(10px + var(--tab-width) + 5px);
-        
-    }
 }
 
 .post-it{
@@ -684,24 +650,32 @@ button.left-arrow:disabled:hover >img {
         grid-template-rows: auto auto;
     }
     
-    .announcements{
-        grid-area: 1/ 1;
-    }
-    .daily-recommendation{
-        grid-area: 2 /1;
-    }
-
-    .announcements,
-    .daily-recommendation {
-        border-left: none;
-        border-bottom: 2px solid;
+    .aside-main-container {
+        grid-area: 1/1;
     }
 
     .books{
-        grid-area: 3 / 1;
+        grid-area: 2 / 1;
+    }
+
+    .aside-main>button.tab-toggle {
+        transform: rotate(0deg);
+        top: auto;
+        bottom: calc(-.5* var(--tab-height));
+        left: 10px;
+        display: block;
+    }
+
+    .aside-main[data-collapsed] {
+        height: min-content;
+        padding: initial;
+    }
+
+    .aside-main[data-collapsed]>.aside-header {
+        transform: rotate(0deg);
     }
 }
-
+ 
 @media (max-width:420px) {
     .header-B .top-container{
         grid-template-columns: max-content max-content;
@@ -710,5 +684,4 @@ button.left-arrow:disabled:hover >img {
     .header-B .top-container a:first-of-type{
         grid-column: 1/3;
     }
-
 }

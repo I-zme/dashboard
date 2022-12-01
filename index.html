@@ -13,6 +13,7 @@
 </head>
 <body>
     <div class="flex-container">
+        
         <nav class="sidebar">
             <button class="nav-toggle" aria-label="expand and collapse navigational sidebar" aria-expanded="false"><img id="nav-toggle-img" alt="" ><span>CoLibrary</span></button>
             <ul class="side-list">
@@ -25,6 +26,7 @@
                 <li class="lbr-page" id="settings"><a href="#"><img src="./img/cog.svg" alt="" class="nav-img" aria-label="settings"><span class="page-name">Settings</span></a></li>
             </ul>
         </nav>
+
         <div class="container">
             <header class="primary-header">
                 <div class="header-A">
@@ -56,32 +58,29 @@
                 </div>
             </header>
             <main>
-            <div class="books">
-                <h3 class="section-header">Browse our books</h3>
-            </div>
-            <aside class="aside-main-container">
-                <section class="announcements | aside-main" aria-expanded="true">
-                    <button class="tab-toggle announcements-toggle">Collapse</button>
-                    <h3 class="announcement-header | aside-header">Announcements</h3>
-                    <div class="announcements-container">
-                    </div>
-                    <button class="left-arrow" aria-label="previous announcement"><img src="./img/arrow-left.svg" alt=""></button>
-                    <button class="right-arrow" aria-label="next announcement"><img src="./img/arrow-right.svg" alt=""></button>
-                    <div class="thumbnails-container">
-                    </div>
-                </section>
-                <section class="daily-recommendation | aside-main" aria-expanded="true">
-                    <button class="tab-toggle recommendation-toggle">Collapse</button>
-                    <h3 class="recommendation-header | aside-header">Daily Recommendation</h3>
-                    <!-- We recommend <span class="recommendation-title"></span> by <span class="recommendation-author"></span>.
-                    <p class="recommendation-text"></p>
-                    Want to give it a try? <a href="#" class="recommendation-link">Click here</a> for more details. -->
-                </section>
-                
-            </aside></main>
+                <div class="books">
+                    <h3 class="section-header">Browse our books</h3>
+                </div>
+                <aside class="aside-main-container">
+                    <section class="announcements | aside-main" aria-expanded="true">
+                        <button class="tab-toggle announcements-toggle">Collapse</button>
+                        <h3 class="announcement-header | aside-header">Announcements</h3>
+                        <div class="announcements-container">
+                        </div>
+                        <button class="left-arrow" aria-label="previous announcement"><img src="./img/arrow-left.svg" alt=""></button>
+                        <button class="right-arrow" aria-label="next announcement"><img src="./img/arrow-right.svg" alt=""></button>
+                        <div class="thumbnails-container">
+                        </div>
+                    </section>
+                    <section class="daily-recommendation | aside-main" aria-expanded="true">
+                        <button class="tab-toggle">Collapse</button>
+                        <h3 class="recommendation-header | aside-header">Daily Recommendation</h3>
+                    </section>  
+                </aside>
+            </main>
         </div>
     </div>
-    
+
     <footer class="website-footer">
         <span class="webpage-by">Created by <a href="https://github.com/I-zme">I-zme</a> for <a href="https://www.theodinproject.com/">The Odin Project</a></span>
         <div class="attribution"></div>
