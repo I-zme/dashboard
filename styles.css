@@ -116,6 +116,9 @@ body{
 
 .flex-container {
     display: flex;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
 }
 
 
@@ -125,6 +128,7 @@ body{
     --nav-toggle-size:50px;
     --_nav-img-size:30px;
 
+    min-width: var(--nav-width);
     height: 100%;
     width: var(--nav-width) ;
     background-color: antiquewhite;
@@ -347,6 +351,8 @@ main{
     display: grid;
     grid-template-columns: 3fr var(--side-width);
     transition: all ease-in .4s;
+    -webkit-transition: all ease-in .4s;
+    -moz-transition: all ease-in .4s;
 }
 
 /* BOOKS */
@@ -411,6 +417,7 @@ button.tab-toggle > img {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     filter: drop-shadow(var(--drop-shdw-700));
+    -webkit-filter: drop-shadow(var(--drop-shdw-700));
 }
 
 button.tab-toggle.announcements-toggle {
@@ -448,7 +455,9 @@ button.tab-toggle.announcements-toggle {
     justify-items: center;
     position: relative;
     padding: 1rem 0 3rem 0;
-    transition: all ease-in-out .5s;
+    transition: all ease-in-out .4s;
+    -webkit-transition: all ease-in-out .4s;
+    -moz-transition: all ease-in-out .4s;
 }
 
 .post-it{
@@ -564,9 +573,9 @@ button.left-arrow > img {
     height: var(--_arrow-height);
     filter: drop-shadow(var(--drop-shdw-700));
     -webkit-filter: drop-shadow(var(--drop-shdw-700));
-    transition: all ease-in-out 400ms;
-    -webkit-transition: all ease-in-out 400ms;
-    -moz-transition: all ease-in-out 400ms;
+    transition: all ease-in-out .4s;
+    -webkit-transition: all ease-in-out .4s;
+    -moz-transition: all ease-in-out .4s;
     cursor: pointer;
 }
 
