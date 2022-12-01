@@ -621,7 +621,8 @@ button.left-arrow:disabled:hover >img {
 .daily-recommendation{
     grid-column: 2;
     grid-row: 2;
-    position: relative;
+    display: grid;
+    justify-items: center;
 }
 
 /* UTILITIES */

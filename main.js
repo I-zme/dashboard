@@ -167,7 +167,6 @@ thumbnailContainer.querySelectorAll('.thumbnail').forEach(elem => {
 
 annoucementsContainer.addEventListener('scroll', event => hightlightThumbnails());
 
-// const anouncementNavigation = document.querySelector('.post-it-navigation');
 const leftArrow = document.querySelector('button.left-arrow');
 const rightArrow = document.querySelector('button.right-arrow');
 
@@ -203,6 +202,14 @@ firstChildMutationer.observe(firstThumbnail, {attributes: true})
 lastChildMutationer.observe(lastThumbnail, {attributes: true})
 
 
+// timer
+// let timer;
+
+// setInterval()
+
+
+
+
 // aside main container
 const asideContainers = document.querySelectorAll('.aside-main');
 const sideContainerAnnouncementsToggle = document.querySelector('button.tab-toggle.announcements-toggle');
@@ -223,7 +230,6 @@ function containerToggle(btnToggle,container){
 
 const asideMain = document.querySelector('.aside-main-container');
 asideMain.addEventListener('click', (e)=>{
-    console.log(e.target)
     if(e.target.closest('.tab-toggle')) {
         if(sideContainerAnnouncementsToggle.contains(e.target) && window.matchMedia("(min-width:50em)").matches){
             asideContainers.forEach(container => containerToggle(sideContainerAnnouncementsToggle, container));
@@ -245,7 +251,6 @@ asideMain.addEventListener('click', (e)=>{
             sideContainerAnnouncementsToggle.click();
         }
         else{
-            console.log('h')
             e.target.querySelector('.tab-toggle').click()
         }
     }
@@ -262,4 +267,5 @@ window.addEventListener('resize',()=>{
         }
     })
 })
+
  

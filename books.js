@@ -10,10 +10,13 @@ class Book {
         this.link = link;
     }
 
-    addBook() {
-        const bookDiv = document.createElement('div');
-        bookDiv.classList.add('bk-div');
+    addBook(){
+        const bookDiv = this.createBook();
+        booksContainer.append(bookDiv);
+    }
 
+    createBook() {
+        const bookDiv = this.createBookDiv();
         const bookWrapper = this.createBookWrapper();
         const bookFront = this.createBookCover();
         const bookPage = this.createBookPage();
@@ -23,9 +26,18 @@ class Book {
         const bookTop = this.createBookTop();
         const bookBottom = this.createBookBottom();
         const bookButtons = this.createBookButtons();
+        
         bookWrapper.append(bookFront, bookPage, bookBack, bookRight, bookLeft, bookTop, bookBottom);
         bookDiv.append(bookWrapper, bookButtons);
-        booksContainer.append(bookDiv);
+
+        return bookDiv
+    }
+
+    createBookDiv() {
+        const bookDiv = document.createElement('div');
+        bookDiv.classList.add('bk-div');
+
+        return bookDiv
     }
 
     createBookWrapper() {
@@ -275,3 +287,44 @@ bookPages.forEach(pager=>{
         btn.click()
     });
 });
+
+
+
+// daily recommendation
+const recommendationPreview = document.querySelector('div.recommendation-preview');
+const recommendationTextDiv = document.querySelector('div.recommendation-text');
+
+class Recommendation extends Book {
+    constructor(title, author, summary, quote, tags, link, recommendationText){
+        super(title, author, summary, quote, tags, link);
+        this.recommendationText = recommendationText;
+    }
+
+// add a modal with the full book, (+ add the recommendation text below the buttons ?)
+
+    createBookPreview() {
+        // this is only the cover of the book, with classes to stop it from being interactive
+        const bookDiv = this.createBookDiv();
+        const bookWrapper = this.createBookWrapper();
+        const bookFront = this.createBookCover();
+        bookWrapper.classList.add('not-interactive', 'preview')
+        bookFront.classList.add('preview')
+
+        bookWrapper.append(bookFront);
+        bookDiv.append(bookWrapper);
+        recommendationPreview.append(bookDiv);
+    }
+
+}
+
+let recommendationInfo = {
+    title: "Working with the Dead",
+    author: "Frank Enstein",
+    recommendationText: "Moody, morbid, somewhat romantic and just brimming with dark humour, perfect for shocking your family (and some unsuspecting kids) on Halloween!",
+}
+const findBookInfo = bookList.find(book => book.title === recommendationInfo.title && book.author=== recommendationInfo.author);
+
+const todaysRecommendation = new Recommendation(findBookInfo.title, findBookInfo.author, findBookInfo.summary, findBookInfo.quote, findBookInfo.tags, findBookInfo.link, findBookInfo.recommendationText);
+todaysRecommendation.createBookPreview()
+
+recommendationTextDiv.textContent = recommendationInfo.recommendationText;

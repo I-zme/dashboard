@@ -1,15 +1,28 @@
 :root{
     --bk-height: 320px;
     --bk-width: 240px;
-    --bk-inner-width: 235px;
-    --bk-inner-height: 310px;
+    --bk-inner-width: calc(var(--bk-width) - 5px);
+    --bk-inner-height: calc(var(--bk-height) - 10px);
     --bk-text-padding: 30px;
     --bk-corners-rnd: 3px;
     --bk-side-width: 30px;
     --bk-transition: transform .5s;
     --bk-clr-shdw: rgba(0, 0, 0, 0.1);
+
+    --bk-preview-height: 240px;
+    --bk-preview-width:180px;
+    --bk-preview-inner-height:calc(var(--bk-preview-height) - 6px);
+    --bk-preview-inner-width: calc(var(--bk-preview-width) - 3px);
+    --bk-preview-text-padding: 10px;
 }
 
+.preview {
+    --bk-height: var(--bk-preview-height);
+    --bk-width: var(--bk-preview-width);
+    --bk-inner-height:var(--bk-preview-inner-height);
+    --bk-inner-width:var(--bk-preview-inner-width);
+    --bk-text-padding:var(--bk-preview-text-padding);
+}
 
 .bk-div {
     height: fit-content;
@@ -136,6 +149,11 @@
     transform: rotate3d(0, 1, 0, 35deg);
 }
 
+.bk-book.not-interactive:hover {
+    -webkit-transform: rotate3d(0, 1, 0, 0deg);
+    transform: rotate3d(0, 1, 0, 0deg);
+}
+
 .bk-viewinside .bk-front {
     -webkit-transform: translate3d(0, 0, calc(0.5 * var(--bk-side-width))) rotate3d((0, 1, 0, -160deg));
     transform: translate3d(0, 0, calc(0.5 * var(--bk-side-width))) rotate3d(0, 1, 0, -160deg);
@@ -152,8 +170,8 @@
     transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg);
 }
 
-/* colors and content */
 
+/* colors and content */
 .bk-page,
 .bk-right,
 .bk-top,
