@@ -277,12 +277,12 @@ recommendationTextDiv.textContent = recommendationInfo.recommendationText;
 
 const recommendationModal = document.querySelector('.recommendation-modal');
 recommendationPreview.addEventListener('click', ()=>{
-    recommendationModal.style = 'display:grid'
+    recommendationModal.toggleAttribute('data-visible');
 })
 
 recommendationModal.addEventListener('click',(e)=>{
     if(e.target===recommendationModal || e.target.classList.contains('close')) {
-        recommendationModal.style = 'display:none';
+        recommendationModal.toggleAttribute('data-visible');
     }
 })
 

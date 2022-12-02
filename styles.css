@@ -143,6 +143,7 @@ body{
     -moz-transition: width .3s ease-in-out;
 } 
 
+
 .sidebar>button{
     all: unset;
     cursor: pointer;
@@ -658,6 +659,10 @@ button.left-arrow:disabled:hover >img {
     overflow: auto;
     text-align: center;
     padding: .5rem 0 1rem 0;
+}
+
+.recommendation-modal[data-visible]{
+    display: grid;
 }
 
 .modal-content > .close {
