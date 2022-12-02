@@ -228,8 +228,72 @@ bookList.forEach(book=>{
 })
 
 
+// DAILY RECOMMENDATION
+const recommendationPreview = document.querySelector('div.recommendation-preview');
+const recommendationTextDiv = document.querySelector('div.recommendation-text');
+const recommendationBookDiv = document.querySelector('div.recommendation-book');
 
+class Recommendation extends Book {
+    constructor(title, author, summary, quote, tags, link, recommendationText){
+        super(title, author, summary, quote, tags, link);
+        this.recommendationText = recommendationText;
+    }
+
+// add a modal with the full book, (+ add the recommendation text below the buttons ?)
+
+    AddBookRecommendation(){
+        const bookDiv = this.createBook();
+        recommendationBookDiv.append(bookDiv);
+    }
+
+    createBookPreview() {
+        // this is only the cover of the book, with classes to stop it from being interactive
+        const bookDiv = this.createBookDiv();
+        const bookWrapper = this.createBookWrapper();
+        const bookFront = this.createBookCover();
+        bookWrapper.classList.add('not-interactive', 'preview')
+        bookFront.classList.add('preview')
+
+        bookWrapper.append(bookFront);
+        bookDiv.append(bookWrapper);
+        recommendationPreview.append(bookDiv);
+    }
+
+}
+
+let recommendationInfo = {
+    title: "Working with the Dead",
+    author: "Frank Enstein",
+    recommendationText: "Moody, morbid, somewhat romantic and just brimming with dark humour, perfect for shocking your family (and some unsuspecting kids) on Halloween!",
+}
+const findBookInfo = bookList.find(book => book.title === recommendationInfo.title && book.author=== recommendationInfo.author);
+
+const todaysRecommendation = new Recommendation(findBookInfo.title, findBookInfo.author, findBookInfo.summary, findBookInfo.quote, findBookInfo.tags, findBookInfo.link, findBookInfo.recommendationText);
+todaysRecommendation.createBookPreview()
+todaysRecommendation.AddBookRecommendation()
+
+recommendationTextDiv.textContent = recommendationInfo.recommendationText;
+
+
+const recommendationModal = document.querySelector('.recommendation-modal');
+recommendationPreview.addEventListener('click', ()=>{
+    recommendationModal.style = 'display:block'
+})
+
+recommendationModal.addEventListener('click',(e)=>{
+    if(e.target===recommendationModal || e.target.classList.contains('close')) {
+        recommendationModal.style = 'display:none';
+    }
+})
+
+
+
+
+
+
+// the book event listeners are put after the daily recommendation so that they apply to the recommendation book too
 // event listeners
+
 const flipButtons = document.querySelectorAll('.flip-btn');
 const viewButtons = document.querySelectorAll('.view-btn');
 const infoButtons = document.querySelectorAll('.info-btn');
@@ -288,43 +352,3 @@ bookPages.forEach(pager=>{
     });
 });
 
-
-
-// daily recommendation
-const recommendationPreview = document.querySelector('div.recommendation-preview');
-const recommendationTextDiv = document.querySelector('div.recommendation-text');
-
-class Recommendation extends Book {
-    constructor(title, author, summary, quote, tags, link, recommendationText){
-        super(title, author, summary, quote, tags, link);
-        this.recommendationText = recommendationText;
-    }
-
-// add a modal with the full book, (+ add the recommendation text below the buttons ?)
-
-    createBookPreview() {
-        // this is only the cover of the book, with classes to stop it from being interactive
-        const bookDiv = this.createBookDiv();
-        const bookWrapper = this.createBookWrapper();
-        const bookFront = this.createBookCover();
-        bookWrapper.classList.add('not-interactive', 'preview')
-        bookFront.classList.add('preview')
-
-        bookWrapper.append(bookFront);
-        bookDiv.append(bookWrapper);
-        recommendationPreview.append(bookDiv);
-    }
-
-}
-
-let recommendationInfo = {
-    title: "Working with the Dead",
-    author: "Frank Enstein",
-    recommendationText: "Moody, morbid, somewhat romantic and just brimming with dark humour, perfect for shocking your family (and some unsuspecting kids) on Halloween!",
-}
-const findBookInfo = bookList.find(book => book.title === recommendationInfo.title && book.author=== recommendationInfo.author);
-
-const todaysRecommendation = new Recommendation(findBookInfo.title, findBookInfo.author, findBookInfo.summary, findBookInfo.quote, findBookInfo.tags, findBookInfo.link, findBookInfo.recommendationText);
-todaysRecommendation.createBookPreview()
-
-recommendationTextDiv.textContent = recommendationInfo.recommendationText;

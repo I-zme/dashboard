@@ -15,15 +15,15 @@
     <div class="flex-container">
 
         <nav class="sidebar">
-            <button class="nav-toggle" aria-label="expand and collapse navigational sidebar" aria-expanded="false"><img id="nav-toggle-img" alt="" ><span>CoLibrary</span></button>
+            <button class="nav-toggle | shadow-hover" aria-label="expand and collapse navigational sidebar" aria-expanded="false"><img id="nav-toggle-img" alt="" ><span>CoLibrary</span></button>
             <ul class="side-list">
-                <li class="lbr-page" id="home"><a href="./index.html"><img class="nav-img" src="./img/home.svg" alt="" aria-label="home page"><span class="page-name">Home</span></a></li>
-                <li class="lbr-page" id="about"><a href="#"><img class="nav-img" src="./img/bookshelf.svg" alt="" aria-label="about us"><span class="page-name">About Us</span></a></li>
-                <li class="lbr-page" id="advanced-search"><a href="#"><img src="./img/magnify.svg" alt="" class="nav-img" aria-label="Advanced search"><span class="page-name">Advanced Search</span></a></li>
-                <li class="lbr-page" id="upload"><a href="#"><img src="./img/book-arrow-up.svg" alt="" class="nav-img" aria-label="upload your own story"><span class="page-name">Upload Your Story</span></a></li>
-                <li class="lbr-page" id="events"><a href="#"><img src="./img/calendar-star.svg" alt="" class="nav-img" aria-label="events"><span class="page-name">Events</span></a></li>
-                <li class="lbr-page" id="jobs"><a href="#"><img src="./img/briefcase-outline.svg" alt="" class="nav-img" aria-label="jobs"><span class="page-name">Jobs</span></a></li>
-                <li class="lbr-page" id="settings"><a href="#"><img src="./img/cog.svg" alt="" class="nav-img" aria-label="settings"><span class="page-name">Settings</span></a></li>
+                <li class="lbr-page" id="home"><a href="./index.html" class="shadow-hover"><img class="nav-img" src="./img/home.svg" alt="" aria-label="home page"><span class="page-name">Home</span></a></li>
+                <li class="lbr-page" id="about"><a href="#" class="shadow-hover"><img class="nav-img" src="./img/bookshelf.svg" alt="" aria-label="about us"><span class="page-name">About Us</span></a></li>
+                <li class="lbr-page" id="advanced-search"><a href="#" class="shadow-hover"><img src="./img/magnify.svg" alt="" class="nav-img" aria-label="Advanced search"><span class="page-name">Advanced Search</span></a></li>
+                <li class="lbr-page" id="upload"><a href="#" class="shadow-hover"><img src="./img/book-arrow-up.svg" alt="" class="nav-img" aria-label="upload your own story"><span class="page-name">Upload Your Story</span></a></li>
+                <li class="lbr-page" id="events"><a href="#" class="shadow-hover"><img src="./img/calendar-star.svg" alt="" class="nav-img" aria-label="events"><span class="page-name">Events</span></a></li>
+                <li class="lbr-page" id="jobs"><a href="#" class="shadow-hover"><img src="./img/briefcase-outline.svg" alt="" class="nav-img" aria-label="jobs"><span class="page-name">Jobs</span></a></li>
+                <li class="lbr-page" id="settings"><a href="#" class="shadow-hover"><img src="./img/cog.svg" alt="" class="nav-img" aria-label="settings"><span class="page-name">Settings</span></a></li>
             </ul>
         </nav>
 
@@ -82,6 +82,13 @@
                         <div class="recommendation-text"></div>
                         <div class="recommendation-preview">
                             <span class="visually-hidden">Click to preview our recommendation</span>
+                        </div>
+                        <div class="recommendation-modal">
+                            <div class="modal-content">
+                                <h3 class="modal-header">Today's Recommendation!</h3>
+                                <span class="close | shadow-hover">&times;</span>
+                                <div class="recommendation-book"></div>
+                            </div>
                         </div>
                     </section>  
                 </aside>

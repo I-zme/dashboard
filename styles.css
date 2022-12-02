@@ -1,5 +1,5 @@
 /* VARS */
-@font-face {
+/* @font-face {
     font-family: "Brass Mono";
     src: url("./fonts/BrassMonoComfortableRegular-XmYK.woff") format("woff"), url("./fonts/BrassMonoCozyRegular-g146.woff") format("woff"), url("./fonts/BrassMonoRegular-o2Yz.woff"), url("woff");
 }
@@ -12,7 +12,7 @@
 @font-face {
     font-family: "Select Mono";
     src: url("./fonts/SelectMonoItalic-ywm8d.woff") format("woff");
-}
+} */
 
 
 :root{
@@ -175,11 +175,6 @@ body{
 .sidebar .nav-img{
     height: var(--_nav-img-size);
     width: var(--_nav-img-size);
-}
-
-.sidebar li>a:hover, .sidebar button:hover{
-    filter: drop-shadow(var(--drop-shdw-700));
-    -webkit-filter: drop-shadow(var(--drop-shdw-700));
 }
 
 .sidebar .page-name,
@@ -625,6 +620,67 @@ button.left-arrow:disabled:hover >img {
     justify-items: center;
 }
 
+.recommendation-text {
+    width: var(--post-it-size);
+    text-align: center;
+}
+
+.recommendation-preview {
+    margin-top:.5rem;
+    cursor: pointer;
+}
+
+/* recommendation-modal */
+.recommendation-modal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    /* the first bg-color is a fallback */
+}
+
+.recommendation-modal > .modal-content{
+    background-color: #fff;
+    margin: 2% auto;
+    border: 1px solid;
+    width: 60%;
+    min-height: fit-content;
+    height: 90%;
+    /* height: 70%; */
+    position: relative;
+    display: grid;
+    grid-template-rows: min-content auto;
+    justify-items: center;
+    padding: 1rem 0 2rem 0;
+    row-gap: 1rem;
+}
+
+.modal-content > .close {
+    background-color: transparent;
+    font-size: 3rem;
+    font-weight: 500;
+    cursor: pointer;
+
+    position: absolute;    
+    top: -1rem;
+    right: .5rem;
+}
+
+.modal-content > .modal-header {
+    font-size: 2rem;
+    grid-area: 1/1;
+}
+
+.modal-content > .recommendation-book {
+    grid-area: 2/1;
+    min-height: max-content;
+}
+
+
 /* UTILITIES */
 
 .visually-hidden {
@@ -651,6 +707,11 @@ button.left-arrow:disabled:hover >img {
     padding: 0.3rem var(--size-300);
     box-shadow: 0 0 1px 1px white;
     border-radius: var(--border-rd-400);
+}
+
+.shadow-hover:hover {
+    filter: drop-shadow(var(--drop-shdw-700));
+    -webkit-filter: drop-shadow(var(--drop-shdw-700));
 }
 
 .rnd-btn:hover{
@@ -711,6 +772,16 @@ button.left-arrow:disabled:hover >img {
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
     }
+
+    .recommendation-modal > .modal-content {
+        height: 95%;
+        width: 95%;
+        margin: 2.5% auto;
+        min-height: max-content;
+    }
+    .modal-content > .modal-header {
+        margin-top: .5rem;
+    } 
 }
  
 @media (max-width:420px) {
