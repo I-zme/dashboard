@@ -277,7 +277,7 @@ recommendationTextDiv.textContent = recommendationInfo.recommendationText;
 
 const recommendationModal = document.querySelector('.recommendation-modal');
 recommendationPreview.addEventListener('click', ()=>{
-    recommendationModal.style = 'display:block'
+    recommendationModal.style = 'display:grid'
 })
 
 recommendationModal.addEventListener('click',(e)=>{
