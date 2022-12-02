@@ -325,7 +325,7 @@ viewButtons.forEach(viewer=>{
 })
 
 
-const bookFronts = document.querySelectorAll('.bk-front');
+const bookFronts = document.querySelectorAll('.bk-front:not(.preview)');
 bookFronts.forEach(fronter=>{
     fronter.addEventListener('click',()=>{
         let infoDivBtnList = fronter.parentElement.nextSibling.childNodes
