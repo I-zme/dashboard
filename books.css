@@ -310,6 +310,14 @@
     background-color: #a26b51;
 }
 
+.bk-book.romance>.bk-front>div,
+.bk-book.romance,
+.bk-book.romance>.bk-back,
+.bk-book.romance>.bk-left,
+.bk-book.romance>.bk-front::after {
+    background-color: #a25174;
+}
+
 .bk-book.comedy,
 .bk-book.comedy > .bk-front > div,
 .bk-book.comedy > .bk-back,

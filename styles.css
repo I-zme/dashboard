@@ -336,10 +336,24 @@ input[type="search"]:-ms-input-placeholder {
 }
 
 .dropdown-content > span> img{
-    display: inline-block;
+    display: none;
     height: 20px;
     width: 30px;
 }
+
+.dropdown-content > span::before{
+    content: '';
+    height: 1.3em;
+    width: 1.3em;
+}
+
+.dropdown-content>span[data-checked]::before {
+    content: url('./img/check.svg');
+}
+
+/* .dropdown-content > span[data-checked] > img {
+    display: inline-block;
+} */
 
 
 

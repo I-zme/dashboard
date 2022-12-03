@@ -6,12 +6,26 @@ const themeDropDown= document.querySelector('.dropdown-content');
 themeToggle.addEventListener('click',()=>{
     themeDropDown.toggleAttribute('data-visible');
     themeDropDown.hasAttribute('data-visible') ? themeDropDown.setAttribute('aria-expanded','false') : themeDropDown.setAttribute('aria-expanded','true');
-
 })
 
+const themes = document.querySelectorAll('.dropdown-content > span');
+themes.forEach(theme => {
+    theme.addEventListener('click',()=>{
+        themes.forEach(theme => {
+            theme.removeAttribute('data-checked','');
+            theme.setAttribute('aria-selected','false');
+        })
+
+        theme.toggleAttribute('data-checked');
+        theme.setAttribute('aria-selected','true')
+    })
+})
+
+
+// clicking outside the div to close the dropdown
 document.addEventListener('click',(e)=>{
-    if(!themeToggle.contains(e.target) && themeDropDown.hasAttribute('data-visible')){
-        themeToggle.click()
+    if(!(themeToggle.contains(e.target) || themeDropDown.contains(e.target)) && themeDropDown.hasAttribute('data-visible')){
+            themeToggle.click()
     }
 });
 

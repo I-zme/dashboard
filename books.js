@@ -185,6 +185,15 @@ const bookList = [
     },
 
     {
+        title: 'New Home: Alabama',
+        author:"Harry D. Silvermann",
+        summary: "1952, Alabama, a new arriver in town takes up a job at the local post office, slowly adjusting to life in the area, learning its people and their habits. What they don't know is that this new arriver is actually a scout, from a distant planet on the brink of extinction, searching for a new planet to inhabit. This book details his periodic reports of his findings.",
+        quote: "There is preexisting infrastructure for a separation of races (black and white colored skin here) that could easily be converted for our uses.",
+        tags:['sci-fi','drama','historical','aliens'],
+        link:'#',
+    },
+
+    {
         title:"Nomadish",
         author: "Gaming Nomad",
         summary: "A quick guide to following your dreams and remembering the importance of play.",
@@ -211,6 +220,14 @@ const bookList = [
         link:"#",
     },
 
+    {
+        title: "Captive at Sea",
+        author:"The Rox Sisters",
+        summary: "The Rox Sisters are back with yet another 18th century romance set in the carribeans, if you liked Pirates of the Carribean but wanted less Captain Jack Sparrow and more sexy scenes everywhere, this is the book for you.",
+        quote: "She felt warm all over as she watched him, and for once couldn't blame the Caribbean sun.",
+        tags:['historical','romance','adult','pirates'],
+        link:'#',
+    },
     // {
     //     title:,
     //     author:,
