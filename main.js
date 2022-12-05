@@ -33,32 +33,25 @@ document.addEventListener('click',(e)=>{
 // navbar
 const navToggle = document.querySelector('.nav-toggle');
 navToggle.addEventListener('click',()=>{
-    navToggle.toggleAttribute('data-expanded')
-    if(navToggle.hasAttribute('data-expanded')){
-        navToggle.setAttribute('aria-expanded', "true");
-        root.style.setProperty('--nav-width','var(--nav-expanded-width)');
-    }
-    else{
-        navToggle.setAttribute('aria-expanded', "false")
+    navToggle.toggleAttribute('data-collapsed')
+    if(navToggle.hasAttribute('data-collapsed')){
+        navToggle.setAttribute('aria-expanded', "false");
         root.style.setProperty('--nav-width','var(--nav-min-width)');
     }
-
-})
-
-
-document.addEventListener('DOMContentLoaded',(e)=>{
-    if(window.matchMedia("(min-width:50em)").matches){
-        navToggle.click()
+    else{
+        navToggle.setAttribute('aria-expanded', "true")
+        root.style.setProperty('--nav-width','var(--nav-expanded-width)');
     }
+
 })
 
 window.addEventListener('resize',()=>{
     if(window.matchMedia("(max-width:50em)").matches){
-        if(navToggle.hasAttribute('data-expanded')){
+        if(!navToggle.hasAttribute('data-collapsed')){
             navToggle.click()
         }
     }
-    else if(!navToggle.hasAttribute('data-expanded')){
+    else if(navToggle.hasAttribute('data-collapsed')){
         navToggle.click()
     }
 })
