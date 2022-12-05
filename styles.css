@@ -430,9 +430,6 @@ main{
 button.tab-toggle > img {
     height: 100%;
     width: 100%;
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
     filter: drop-shadow(var(--drop-shdw-700));
     -webkit-filter: drop-shadow(var(--drop-shdw-700));
 }
