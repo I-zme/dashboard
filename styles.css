@@ -465,7 +465,22 @@ button.tab-toggle.announcements-toggle {
 }
 
 .aside-main[data-collapsed] > :not(.aside-grid-container) {
-    display: none;
+    transform: translateX(200%);
+    -webkit-transform: translateX(200%);
+    -moz-transform: translateX(200%);
+}
+
+.aside-main[data-collapsed] .left-arrow {
+    left: 200%;
+}
+
+.aside-main> :not(.aside-grid-container) {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    transition: transform .6s ease-in-out;
+    -webkit-transition: -webkit-transform .6s ease-in-out;
+    -moz-transition: -moz-transform .6s ease-in-out;
 }
 
 .aside-main[data-collapsed]{
@@ -614,8 +629,12 @@ button.left-arrow > img {
     cursor: pointer;
 }
 
-button.left-arrow {
+.aside-main .left-arrow {
     left: var(--_arrow-position);
+    /* transition timing has to be after the left positioning, which has to be after the variable declaration. 500ms here and not 600 to make the transition smoother */
+    transition: left .5s ease-in-out;
+    -webkit-transition: left .5s ease-in-out;
+    -moz-transition: left .5s ease-in-out;
 }
 
 button.right-arrow {
@@ -815,6 +834,10 @@ button.left-arrow:disabled:hover >img {
         -moz-transform: rotate(0deg);
     }
     
+    .aside-main[data-collapsed] > :not(.aside-grid-container){
+        display: none;
+    }
+
     .aside-main[data-collapsed] button.tab-toggle > img {
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
