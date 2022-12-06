@@ -45,6 +45,13 @@ navToggle.addEventListener('click',()=>{
 
 })
 
+document.addEventListener('DOMContentLoaded',(e)=>{
+    if(window.matchMedia("(max-width:50em)").matches){
+        navToggle.click()
+    }
+})
+
+
 window.addEventListener('resize',()=>{
     if(window.matchMedia("(max-width:50em)").matches){
         if(!navToggle.hasAttribute('data-collapsed')){

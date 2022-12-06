@@ -350,12 +350,20 @@
     background-color: #c09ad3;
 }
 
-.bk-book.horror,
+.bk-book.reference,
 .bk-book.horror>.bk-front>div,
 .bk-book.horror>.bk-back,
 .bk-book.horror>.bk-left,
 .bk-book.horror>.bk-front::after {
     background-color: #454343;
+}
+
+.bk-book.reference,
+.bk-book.reference>.bk-front>div,
+.bk-book.reference>.bk-back,
+.bk-book.reference>.bk-left,
+.bk-book.reference>.bk-front::after {
+    background-color: #4f47a9;
 }
 
 /* buttons */

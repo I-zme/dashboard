@@ -228,6 +228,23 @@ const bookList = [
         tags:['historical','romance','adult','pirates'],
         link:'#',
     },
+    {
+        title: "The Awakening of the Noodle",
+        author:"John Spaghettisburgh",
+        summary:"The secret story of how, in the second half of the twentieth century, in an attempt to strengthen their position in the European Union, Italy tried to gain favour using its greatest weapon - pasta. A hilarious mock history book that'll leave you confused and VERY hungry.",
+        quote: "The committee report concluded - where Mussolini failed, Tortellini will succeed.",
+        tags:['comedy','reference','pasta'],
+        link:'#',
+    },
+    {
+        title:"The Culinary Wormhole",
+        author: "Niel The-Grass Bison",
+        summary:" Tired of all the clutter of your hundreds of recipe books? Try this one instead, the cookbook of the universe, infinite recipes you will love to make and eat. Infinite recipes, you say, does it need infinite space too? Worry not, this book defies physics and will fit in whatever space you have!",
+        quote:"Your teenage son has a wormhole for a stomach? Stab him with a pencil, it's the fastest way.",
+        tags:['cookbook','comedy','reference'],
+        link:'#',
+    },
+
     // {
     //     title:,
     //     author:,
@@ -238,7 +255,7 @@ const bookList = [
     // },
 ]
 
-
+bookList.sort((a,b)=>(a.author.split(' ').reverse()[0]>b.author.split(' ').reverse()[0] ? 0:-1))
 bookList.forEach(book=>{
     let aBook = new Book(book.title, book.author, book.summary, book.quote, book.tags, book.link);
     aBook.addBook()
