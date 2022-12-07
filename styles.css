@@ -24,6 +24,7 @@
     --trans-400: .4s ease-in-out;
     --trans-all-400: all var(--trans-400);
 
+    --drop-shdw-300: 1px 1px 1px white;
     --drop-shdw-700: 1px 1px 1px rgb(45, 45, 45);
 
 
@@ -31,7 +32,7 @@
     /* --clr-btn-hover:rgba(255, 255, 255, 0.8); */
     --clr-btn: rgba(0, 0, 0, 0.6);
     --clr-btn-hover: rgba(0, 0, 0, 0.8);
-    --clr-accent-300: rgb(120, 120, 120);
+    --clr-accent-300: rgb(220, 220, 220);
     --clr-neutral-400:rgb(48, 47, 54);
     --clr-neutral-500: #241a18;
     --clr-post-it: #766f62;
@@ -41,6 +42,7 @@
 
     --clr-text-400:white;
 
+    /* --clr-accent-300: rgb(120, 120, 120); */
     /* --clr-post-it: #495e3e; */
     /* --clr-post-it: #929166; */
     /* --clr-post-it-accent: #424e3a; */
@@ -185,11 +187,6 @@ body{
 }
 
 .sidebar li>a, .sidebar>button{
-    /* for dark theme */
-    filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(6052%) hue-rotate(307deg) brightness(98%) contrast(85%) drop-shadow(2px 2px 0 black);    
-    font-weight: 700;
-    /*  */
-
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
@@ -219,6 +216,12 @@ body{
     width: var(--_nav-img-size);
 }
 
+.sidebar .nav-img,
+.sidebar > button > img#nav-toggle-img{
+    /* dark */
+    filter: invert(1) drop-shadow(2px 2px 0 #583d39);
+}
+
 .sidebar .page-name,
 .sidebar>button>span {
     display: inline-block;
@@ -226,6 +229,10 @@ body{
     transition: opacity 1s ease-in-out;
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
+
+    filter: drop-shadow(2px 2px 0 #583d39);
+    font-weight: 700;
+    color: var(--clr-text-400);
 }
 
 .sidebar > .nav-toggle[data-collapsed] >span,
@@ -255,10 +262,18 @@ body{
 
 /* FOOTER */
 .website-footer{
-    min-height: fit-content;
-    height: var(--footer-height);
+    min-height: var(--footer-height);
+    height: fit-content;
     background-color: var(--clr-footer);
     color: var(--clr-text-400);
+    padding: 1rem;
+}
+
+
+.website-footer ul{
+    list-style-type: none;
+    margin-top: 1rem;    
+    font-size: .875rem;
 }
 
 .website-footer a{
@@ -340,7 +355,7 @@ input[type="search"].search-input,
 }
 
 input[type="search"].search-input:focus{
-    border: 1px solid var(--clr-accent-300);
+    color: inherit;
 }
 
 input[type="search"]::placeholder{
@@ -414,6 +429,9 @@ input[type="search"]:-ms-input-placeholder {
 
 .dropdown-content>span[data-checked]::before {
     content: url('./img/check.svg');
+    /* dark */
+    filter: invert(1);
+    -webkit-filter: invert(1);
 }
 
 
@@ -431,9 +449,6 @@ main{
 
 .books {
     grid-column: 1;
-    /* background: url('./img/pexels-photomix-company-518245.jpg') repeat-y;  
-    background-size: 100%; */
-    
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--bk-width), 1fr));
     grid-template-rows: min-content;
@@ -444,12 +459,15 @@ main{
     justify-items: center;
     justify-content: center;
     position: relative;
-    
 }
 
 .books > h3 {
     grid-column: 1/-1;
     grid-row: 1;
+    color: var(--clr-text-400);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px black;
 }
 
 
@@ -477,6 +495,8 @@ main{
     cursor: pointer;
     grid-area: 1/2;
     line-height: 1em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px black;
 }
 
 .aside-main > .aside-grid-container{
@@ -503,8 +523,9 @@ main{
 button.tab-toggle > img {
     height: 100%;
     width: 100%;
-    filter: drop-shadow(var(--drop-shdw-700));
-    -webkit-filter: drop-shadow(var(--drop-shdw-700));
+    /* dark invert*/
+    filter: drop-shadow(var(--drop-shdw-300)) invert(1);
+    -webkit-filter: drop-shadow(var(--drop-shdw-300)) invert(1);
 }
 
 button.tab-toggle.announcements-toggle {
@@ -735,6 +756,7 @@ button.left-arrow:disabled:hover >img {
 .recommendation-preview {
     margin-top:var(--padding-300);
     cursor: pointer;
+    box-shadow: 0 0 10px 0 white;
 }
 
 /* recommendation-modal */
@@ -752,10 +774,12 @@ button.left-arrow:disabled:hover >img {
 }
 
 .recommendation-modal > .modal-content{
-    background-color: #fff;
+    background-color: hsl(200, 58%, 16%);
     margin: auto auto;
-    border: 1px solid;
+    border: 0.02em solid var(--clr-text-400);
+    /* border-radius: var(--border-rd-400); */
     width: 60%;
+    box-shadow: 0 0 5px hsl(200, 58%, 56%);
     min-height: fit-content;
     position: relative;
     display: grid;
@@ -826,6 +850,8 @@ button.left-arrow:disabled:hover >img {
 .shadow-hover:hover {
     filter: drop-shadow(var(--drop-shdw-700));
     -webkit-filter: drop-shadow(var(--drop-shdw-700));
+    text-shadow: 0 0 10px var(--clr-text-400);
+    transition: none;
 }
 
 

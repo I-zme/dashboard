@@ -14,6 +14,12 @@
     --bk-preview-inner-height:calc(var(--bk-preview-height) - 6px);
     --bk-preview-inner-width: calc(var(--bk-preview-width) - 3px);
     --bk-preview-text-padding: 10px;
+
+    --bk-clr-text:white;
+    --bk-clr-page:black;
+
+    --lightness:15%;
+    --saturation:80%;
 }
 
 .preview {
@@ -176,7 +182,7 @@
 .bk-right,
 .bk-top,
 .bk-bottom {
-    background-color: #fff;
+    background-color: var(--bk-clr-page);
 }
 
 .bk-front>div {
@@ -222,7 +228,7 @@
     -webkit-transform: rotate(90deg) translateY(calc(-1 * var(--bk-side-width)));
     transform: rotate(90deg) translateY(calc(-1 * var(--bk-side-width)));
 
-    color: white;
+    color: var(--bk-clr-text);
     font-size: 15px;
     line-height: var(--bk-side-width);
     padding-right: 10px;
@@ -243,6 +249,8 @@
     overflow: hidden;
     padding: var(--bk-text-padding);
     pointer-events: none;
+
+    color: var(--bk-clr-text);
 }
 
 .bk-page .bk-content .bk-quote {
@@ -276,7 +284,7 @@
     left: 10%;
     padding: var(--bk-text-padding);
     background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    color: var(--bk-clr-text);
     text-shadow: 0 -1px 0 var(--bk-clr-shdw);
 }
 
@@ -293,7 +301,7 @@
 }
 
 .bk-back>p {
-    color: #fff;
+    color: var(--bk-clr-text);
     font-size: 13px;
     padding: var(--bk-text-padding);
     text-align: center;
@@ -307,7 +315,7 @@
 .bk-book>.bk-back,
 .bk-book>.bk-left,
 .bk-book>.bk-front::after {
-    background-color: #a26b51;
+    background-color: hsl(19, var(--saturation), var(--lightness));
 }
 
 .bk-book.romance>.bk-front>div,
@@ -315,7 +323,7 @@
 .bk-book.romance>.bk-back,
 .bk-book.romance>.bk-left,
 .bk-book.romance>.bk-front::after {
-    background-color: #a25174;
+    background-color: hsl(334, var(--saturation), var(--lightness));
 }
 
 .bk-book.comedy,
@@ -323,7 +331,7 @@
 .bk-book.comedy > .bk-back,
 .bk-book.comedy > .bk-left,
 .bk-book.comedy > .bk-front::after {
-    background-color: #a27b51;
+    background-color: hsl(31, var(--saturation), var(--lightness));
 }
 
 .bk-book.drama,
@@ -331,7 +339,7 @@
 .bk-book.drama>.bk-back,
 .bk-book.drama>.bk-left,
 .bk-book.drama>.bk-front::after {
-    background-color: #87ae79;
+    background-color: hsl(104, var(--saturation), var(--lightness));
 }
 
 .bk-book.self-help,
@@ -339,7 +347,7 @@
 .bk-book.self-help>.bk-back,
 .bk-book.self-help>.bk-left,
 .bk-book.self-help>.bk-front::after {
-    background-color: #799fae;
+    background-color: hsl(197, var(--saturation), var(--lightness));
 }
 
 .bk-book.sci-fi,
@@ -347,15 +355,15 @@
 .bk-book.sci-fi>.bk-back,
 .bk-book.sci-fi>.bk-left,
 .bk-book.sci-fi>.bk-front::after {
-    background-color: #c09ad3;
+    background-color: hsl(280, var(--saturation), var(--lightness));
 }
 
-.bk-book.reference,
+.bk-book.horror,
 .bk-book.horror>.bk-front>div,
 .bk-book.horror>.bk-back,
 .bk-book.horror>.bk-left,
 .bk-book.horror>.bk-front::after {
-    background-color: #454343;
+    background-color: hsl(300, var(--saturation), var(--lightness));
 }
 
 .bk-book.reference,
@@ -363,7 +371,7 @@
 .bk-book.reference>.bk-back,
 .bk-book.reference>.bk-left,
 .bk-book.reference>.bk-front::after {
-    background-color: #4f47a9;
+    background-color: hsl(245, var(--saturation), var(--lightness));
 }
 
 /* buttons */
@@ -380,6 +388,7 @@
     padding: 0.2em 0.5em;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .info-div > button:hover {
