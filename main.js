@@ -37,10 +37,12 @@ navToggle.addEventListener('click',()=>{
     if(navToggle.hasAttribute('data-collapsed')){
         navToggle.setAttribute('aria-expanded', "false");
         root.style.setProperty('--nav-width','var(--nav-min-width)');
+        root.style.setProperty('--nav-bg-percentage','var(--nav-bg-min)');
     }
     else{
         navToggle.setAttribute('aria-expanded', "true")
         root.style.setProperty('--nav-width','var(--nav-expanded-width)');
+        root.style.setProperty('--nav-bg-percentage','var(--nav-bg-expanded)');
     }
 
 })

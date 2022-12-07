@@ -375,14 +375,16 @@
 }
 
 .info-div > button {
-    background-color: #fff;
+    color: var(--clr-text-400);
+    background-color: var(--clr-btn);
     padding: 0.2em 0.5em;
     border: none;
-    border-radius: 3px;
+    cursor: pointer;
 }
 
 .info-div > button:hover {
-    background-color: rgb(185, 184, 184);
+    background-color: var(--clr-btn-hover);
+    box-shadow: 0 0 3px 0 var(--clr-text-400);
 }
 
 .info-div > button:active {
