@@ -13,8 +13,15 @@
     --nav-bg-min:625%;
     --nav-bg-percentage:var(--nav-bg-expanded);
     
+    --fs-300:.875rem;
+    --fs-400:1rem;
+    --fs-500:1.2rem;
+    --fs-600:1.5rem;
+    --fs-700:2rem;
+    --fs-800:3rem;
+
     --size-300:.5rem;
-    --padding-300:.5rem;
+    --padding-300:var(--size-300);
     --padding-400:1rem;
     --padding-700:3rem;
 
@@ -268,20 +275,43 @@ body{
     height: fit-content;
     background-color: var(--clr-footer);
     color: var(--clr-text-400);
-    padding: 1rem;
+    padding: var(--padding-400);
 }
 
+.website-footer .webpage-by {
+    font-size: var(--fs-500);
+    width: 100%;
+    text-align: center;
+}
 
-.website-footer ul{
+.attribution h5{
+    margin-top: var(--padding-400);
+    font-size: var(--fs-500);
+}
+
+.website-footer ul.credit-list{
     list-style-type: none;
-    margin-top: 1rem;    
-    font-size: .875rem;
+    text-indent: var(--padding-300);
+    font-size: var(--fs-300);
+}
+
+.website-footer ul.credit-list > li{
+    margin-bottom: var(--padding-400);
+}
+
+.website-footer ul.credit-list ul >li{
+    list-style-position: inside;
 }
 
 .website-footer a{
     color: inherit;
     text-decoration: none;
     font-weight: 600;
+}
+
+.website-footer a:hover {
+    text-decoration: underline;
+    line-height: 1.5em;
 }
 
 /* HEADER AND MAIN */
@@ -309,7 +339,7 @@ body{
 }
 
 .header-A .logo{
-    font-size: 3rem;
+    font-size: var(--fs-800);
 }
 
 .header-B{
@@ -471,7 +501,7 @@ main{
     grid-column: 1/-1;
     grid-row: 1;
     color: var(--clr-text-400);
-    font-size: 1.5rem;
+    font-size: var(--fs-600);
     text-transform: uppercase;
     text-shadow: 2px 2px black;
 }
@@ -496,7 +526,7 @@ main{
 }
 
 .aside-main .aside-header {
-    font-size: 1.5rem;
+    font-size: var(--fs-600);
     text-align: center;
     cursor: pointer;
     grid-area: 1/2;
@@ -617,13 +647,13 @@ button.tab-toggle.announcements-toggle {
     transform: rotate(-2deg);
     -webkit-transform: rotate(-2deg);
     -moz-transform: rotate(-2deg);
-    font-size: .875rem;
+    font-size: var(--fs-300);
 }
 
 .post-it-inner h3 {
     font-weight: 700;
     text-align: center;
-    font-size: 1rem;
+    font-size: var(--fs-400);
     margin-bottom: .5em;
 }
 
@@ -809,7 +839,7 @@ button.left-arrow:disabled:hover >img {
 
 .modal-content > .close {
     background-color: transparent;
-    font-size: 3rem;
+    font-size: var(--fs-800);
     font-weight: 500;
     cursor: pointer;
 
@@ -819,7 +849,7 @@ button.left-arrow:disabled:hover >img {
 }
 
 .modal-content > .modal-header {
-    font-size: 2rem;
+    font-size: var(--fs-700);
     grid-area: 1/1;
 }
 
