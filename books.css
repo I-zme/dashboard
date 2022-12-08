@@ -16,7 +16,7 @@
     --bk-preview-text-padding: 10px;
 
     --bk-clr-text:white;
-    --bk-clr-page:black;
+    --bk-clr-page:hsl(249, 7%, 20%);
 
     --lightness:15%;
     --saturation:80%;
