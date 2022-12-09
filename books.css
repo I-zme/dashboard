@@ -7,7 +7,7 @@
     --bk-corners-rnd: 3px;
     --bk-side-width: 30px;
     --bk-transition: transform .5s;
-    --bk-clr-shdw: rgba(0, 0, 0, 0.1);
+    --bk-clr-shdw: rgba(255,255,255, 0.4);
 
     --bk-preview-height: 240px;
     --bk-preview-width:180px;
@@ -15,11 +15,21 @@
     --bk-preview-inner-width: calc(var(--bk-preview-width) - 3px);
     --bk-preview-text-padding: 10px;
 
-    --bk-clr-text:white;
-    --bk-clr-page:hsl(249, 7%, 20%);
+    --bk-clr-text:var(--clr-text-400);
+    --bk-clr-page:white;
 
+    --bk-cover-opacity:0.4;
+    --lightness:65%;
+    --saturation:50%;
+}
+
+:root.dark{
     --lightness:15%;
     --saturation:80%;
+    --bk-cover-opacity: 0.2;
+
+    --bk-clr-page:hsl(249, 7%, 20%);
+    --bk-clr-shdw: rgba(0, 0, 0, 0.1);
 }
 
 .preview {
@@ -46,6 +56,9 @@
     -webkit-transition: -webkit-transform .5s;
     transition: var(--bk-transition);
     cursor: pointer;
+
+    font-family: var(--ff-books);
+    font-size: var(--fs-books);
 }
 
 .bk-book>div,
@@ -283,7 +296,7 @@
     top: 10%;
     left: 10%;
     padding: var(--bk-text-padding);
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, var(--bk-cover-opacity));
     color: var(--bk-clr-text);
     text-shadow: 0 -1px 0 var(--bk-clr-shdw);
 }
@@ -315,7 +328,7 @@
 .bk-book>.bk-back,
 .bk-book>.bk-left,
 .bk-book>.bk-front::after {
-    background-color: hsl(19, var(--saturation), var(--lightness));
+    background-color: hsl(210, var(--saturation), var(--lightness));
 }
 
 .bk-book.romance>.bk-front>div,
@@ -323,7 +336,7 @@
 .bk-book.romance>.bk-back,
 .bk-book.romance>.bk-left,
 .bk-book.romance>.bk-front::after {
-    background-color: hsl(334, var(--saturation), var(--lightness));
+    background-color: hsl(350, var(--saturation), var(--lightness));
 }
 
 .bk-book.comedy,
@@ -331,7 +344,7 @@
 .bk-book.comedy > .bk-back,
 .bk-book.comedy > .bk-left,
 .bk-book.comedy > .bk-front::after {
-    background-color: hsl(31, var(--saturation), var(--lightness));
+    background-color: hsl(10, var(--saturation), var(--lightness));
 }
 
 .bk-book.drama,
@@ -339,7 +352,7 @@
 .bk-book.drama>.bk-back,
 .bk-book.drama>.bk-left,
 .bk-book.drama>.bk-front::after {
-    background-color: hsl(104, var(--saturation), var(--lightness));
+    background-color: hsl(27, var(--saturation), var(--lightness));
 }
 
 .bk-book.self-help,
@@ -363,7 +376,7 @@
 .bk-book.horror>.bk-back,
 .bk-book.horror>.bk-left,
 .bk-book.horror>.bk-front::after {
-    background-color: hsl(300, var(--saturation), var(--lightness));
+    background-color: hsl(5, var(--saturation), var(--lightness));
 }
 
 .bk-book.reference,
@@ -387,6 +400,7 @@
     background-color: var(--clr-btn);
     padding: 0.2em 0.5em;
     border: none;
+    outline: 1px solid var(--clr-text-opp);
     cursor: pointer;
     border-radius: 5px;
 }
