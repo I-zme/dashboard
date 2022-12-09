@@ -14,11 +14,29 @@ themes.forEach(theme => {
         themes.forEach(theme => {
             theme.removeAttribute('data-checked','');
             theme.setAttribute('aria-selected','false');
-        })
+        });
 
         theme.toggleAttribute('data-checked');
-        theme.setAttribute('aria-selected','true')
-    })
+        theme.setAttribute('aria-selected','true');
+        
+        if(theme.getAttribute('id')==='light-theme'){
+            root.removeAttribute('class', 'dark');
+        }
+        
+        else if(theme.getAttribute('id')==='dark-theme'){
+            root.setAttribute('class', 'dark');
+        }
+        
+        else if(theme.getAttribute('id')==='device-theme'){
+            if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                root.setAttribute('class', 'dark');
+            }
+            else{
+                root.removeAttribute('class', 'dark')
+            }
+        }
+        
+    });
 })
 
 
@@ -28,6 +46,14 @@ document.addEventListener('click',(e)=>{
             themeToggle.click()
     }
 });
+
+// change themes
+document.addEventListener('DOMContentLoaded',()=>{
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        root.setAttribute('class', 'dark');
+    }
+});
+
 
 
 // navbar
@@ -71,6 +97,7 @@ navbar.addEventListener('click',(e)=>{
         navToggle.click()
     }
 })
+
 
 
 // announcements
