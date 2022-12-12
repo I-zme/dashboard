@@ -15,11 +15,6 @@
 }
 
 @font-face {
-    font-family: 'Select Mono';
-    src: url('./fonts/SelectMonoItalic-ywm8d.woff');
-}
-
-@font-face {
     font-family: 'Antique';
     src: url('./fonts/AntiqueBookCover-njgJ.woff');
 }
@@ -68,6 +63,12 @@
     --shdw-header:var(--shdw-header-light);
     --shdw-motto: var(--shdw-motto-ligt);
 
+    --clr-border-dark: hsl(7, 43%, 16%);
+    --clr-shdw-dark: hsl(249, 7%, 10%);
+    --clr-border-light: hsla(38, 24%, 70%, 0.8);
+    --clr-shdw-light: hsl(18, 19%, 65%);
+    --clr-aside-border:var(--clr-border-light);
+    --clr-aside-shdw:var(--clr-shdw-light);
 
     --drop-shdw-300: 1px 1px 1px white;
     --drop-shdw-500: 2px 2px 0 var(--clr-accent-500);
@@ -110,8 +111,6 @@
 
 :root.dark{
     --clr-accent-300: hsl(0, 0%, 86%);
-    --clr-accent-500: hsl(8, 21%, 28%);
-    --clr-neutral-400: hsl(249, 7%, 20%);
 
     --clr-btn: hsla(0, 0%, 0%, 0.6);
     --clr-btn-hover: hsla(0, 0%, 0%, 0.8);
@@ -124,6 +123,8 @@
     --clr-recommendation-shdw: hsl(0, 0%, 80%);
     --shdw-header: var(--shdw-header-dark);
     --shdw-motto: var(--shdw-motto-dark);
+    --clr-aside-border: var(--clr-border-dark);
+    --clr-aside-shdw: var(--clr-shdw-dark);
     --drop-shdw-nav: var(--drop-shdw-500);
 
     --nav-brightness:.6;
@@ -342,17 +343,11 @@ body{
 
 .sidebar li>a:hover,
 .sidebar>button:hover {
-    filter: drop-shadow(var(--drop-shdw-700));
-    -webkit-filter: drop-shadow(var(--drop-shdw-700));
+    filter: drop-shadow(var(--drop-shdw-text));
+    -webkit-filter: drop-shadow(var(--drop-shdw-text));
     transition: none;
 }
 
-/* .shadow-hover:hover {
-    filter: drop-shadow(var(--drop-shdw-700));
-    -webkit-filter: drop-shadow(var(--drop-shdw-700));
-    text-shadow: 0 0 15px var(--clr-text-400);
-    transition: none;
-} */
 
 /* FOOTER */
 .website-footer{
@@ -610,10 +605,8 @@ main{
     transition: var(--trans-all-400);
     -webkit-transition: var(--trans-all-400);
     -moz-transition: var(--trans-all-400);
-    /* border-bottom: 1px solid hsl(7, 43%, 16%);
-    box-shadow: inset 0px 0px 10px 0 hsl(249, 7%, 10%); */
-    border-bottom: 0.02em solid hsla(38, 24%, 70%,0.8);
-    box-shadow: inset 0px 0px 10px 0 hsl(18, 19%, 65%);
+    border-bottom: 0.02em solid var(--clr-aside-border);
+    box-shadow: inset 0px 0px 10px 0 var(--clr-aside-shdw);
 }
 
 .aside-main:last-of-type{
@@ -938,8 +931,8 @@ button.left-arrow:disabled:hover >img {
 
 .modal-content > .close:hover{
     scale: 1.2;
-    filter: drop-shadow(var(--drop-shdw-700));
-    -webkit-filter: drop-shadow(var(--drop-shdw-700));
+    filter: drop-shadow(var(--drop-shdw-text));
+    -webkit-filter: drop-shadow(var(--drop-shdw-text));
 }
 
 .modal-content > .modal-header {
