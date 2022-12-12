@@ -21,112 +21,127 @@
 
 
 :root{
+    /* SIZES */
+    /* component size vars */
     --nav-min-width:40px;
     --nav-expanded-width: 250px;
     --side-min-width: 70px;
     --side-expanded-width:310px;
     --footer-height:100px;
-
-    --border-rd-400: 15px;
-
-    --side-width:var(--side-expanded-width);
-    --nav-width: var(--nav-expanded-width);
     --nav-bg-expanded: 100%;
     --nav-bg-min:625%;
+    --post-it-size: 250px;
+
+    /* padding */
+    --size-300: .5rem;
+    --padding-300: var(--size-300);
+    --padding-400: 1rem;
+    --padding-700: 3rem;
+    --post-it-spacing: 10px;
+
+    /* collapsed and expanded assignment, changed with js */
+    --side-width: var(--side-expanded-width);
+    --nav-width: var(--nav-expanded-width);
     --nav-bg-percentage:var(--nav-bg-expanded);
-    
+
+
+    /* FONTS */
     --fs-300:.875rem;
     --fs-400:1rem;
     --fs-500:1.2rem;
     --fs-600:1.5rem;
     --fs-700:2rem;
     --fs-800:3rem;
-
-    --fs-body:1.2rem;
-    --fs-books:1rem;
-
-    --size-300:.5rem;
-    --padding-300:var(--size-300);
-    --padding-400:1rem;
-    --padding-700:3rem;
-
-    --post-it-size:250px;
-    --post-it-spacing: 10px;
-
-    --trans-400: .4s ease-in-out;
-    --trans-all-400: all var(--trans-400);
-
-    --shdw-header-light: 1px 1px hsl(41, 13%, 58%), 0 0 10px white;
-    --shdw-header-dark: 2px 2px black, 0 0 10px black;
-    --shdw-motto-ligt: 1px 1px hsl(41,13%,70%), 0 0 4px white;
-    --shdw-motto-dark: 1px 1px 0 black, 0 0 10px black;
-    --shdw-header:var(--shdw-header-light);
-    --shdw-motto: var(--shdw-motto-ligt);
-
-    --clr-border-dark: hsl(7, 43%, 16%);
-    --clr-shdw-dark: hsl(249, 7%, 10%);
-    --clr-border-light: hsla(38, 24%, 70%, 0.8);
-    --clr-shdw-light: hsl(18, 19%, 65%);
-    --clr-aside-border:var(--clr-border-light);
-    --clr-aside-shdw:var(--clr-shdw-light);
-
-    --drop-shdw-300: 1px 1px 1px white;
-    --drop-shdw-500: 2px 2px 0 var(--clr-accent-500);
-    --drop-shdw-700: 1px 1px 1px var(--clr-neutral-500);
-
-    --drop-shdw-text: 1px 1px 1px var(--clr-text-400);
+    --fs-body:var(--fs-500);
+    --fs-books: var(--fs-400);
     
-    /* light mode */
-    --clr-accent-300: hsl(0, 0%, 37%);
-    --clr-inversion: 0;
-    --clr-text-opp: white;
-    --clr-btn: hsla(0, 10%, 95%, 0.7);
-    --clr-btn-hover: hsla(0, 50%, 100%, 1);
-    --clr-aside: hsla(41, 27%, 92%, 0.9);
-    --clr-footer: hsl(41, 24%, 71%);
-    --clr-footer-accent: hsl(41, 13%, 58%);
-    --clr-post-it: hsl(59, 28%, 69%);
-    --clr-post-it-accent: hsl(59, 22%, 63%); 
-    --clr-post-it: hsl(59, 22%, 73%);
-    --clr-post-it-accent: hsl(59, 22%, 68%);
-    --clr-recommendation-shdw: hsl(0, 0%, 40%);
-    --clr-text-400: black;
-    --drop-shdw-nav: none;
-    --nav-brightness: none;
-    /*  */
-    --clr-accent-500: hsl(8, 21%, 28%);
-    --clr-neutral-400:hsl(249, 7%, 20%);
-    --clr-neutral-500: hsl(0, 0%, 18%);
-
-    --ff-header:'Kupica';
-    --ff-section-header:'El Messiri';
+    --ff-header: 'Kupica';
+    --ff-section-header: 'El Messiri';
     --ff-body: 'Litos Script';
     --ff-nav: 'Antique';
     --ff-post-it: 'El Messiri';
     --ff-books: 'El Messiri';
+
+
+
+    --trans-400: .4s ease-in-out;
+    --trans-all-400: all var(--trans-400);
+    --border-rd-400: 15px;
+
+    /* shadows and borders */
+    --shdw-px-light:1px 1px;
+    --shdw-px-dark:2px 2px;
+    --shdw-px-diff:var(--shdw-px-light);
+
+
+    --clr-border-light: hsla(41, 27%, 60%, 0.8);
+    --clr-border-dark: hsl(7, 43%, 6%);
+
+    --drop-shdw-700: 1px 1px 1px var(--clr-accent-900);
+    --drop-shdw-text: 1px 1px 1px var(--clr-text-400);
+
+    /* vars that change in dark mode */
+    --clr-aside-border:var(--clr-border-light);
+
+
+    /* colors */
+    --clr-accent-100: hsl(0, 0%, 86%);
+    --clr-accent-200: hsl(41, 10%, 60%);
+    --clr-accent-300: hsl(0, 0%, 37%);
+    --clr-accent-500: hsl(8, 21%, 28%);
+    --clr-accent-900: hsl(0, 0%, 18%);
+    --clr-accent-950: hsl(249, 7%, 5%);
+    
+    --clr-accent-primary: var(--clr-accent-200);
+
+    /* molds with changing vars for dark/light mode */
+    --clr-aside: hsla(var(--clr-fill-hsl), 0.8);
+    --clr-footer: hsl(var(--clr-fill-hsl));
+    --clr-btn: hsla(var(--clr-btn-hsl), 0.6);
+    --clr-btn-hover: hsla(var(--clr-btn-hsl), 1);
+    --clr-post-it: hsl(var(--clr-post-it-hs), var(--clr-post-it-l));
+    --clr-post-it-accent: hsl(var(--clr-post-it-hs), var(--clr-post-it--accent-l));
+    --drop-shdw-nav: var(--shdw-px-diff) 0 var(--clr-accent-primary);
+    --shdw-header: var(--shdw-px-diff) var(--clr-accent-primary), 0 0 10px var(--clr-text-opp);
+    --shdw-motto: var(--shdw-px-light) var(--clr-accent-primary), 0 0 10px var(--clr-text-opp);
+
+    /* light mode */
+    --clr-fill-hsl: 41, 27%, 87%;
+    --clr-btn-hsl: 0, 10%, 95%;
+    --clr-post-it-hs: 59, 22%;
+    --clr-post-it-l: 73%;
+    --clr-post-it--accent-l: 68%;
+
+    --clr-placeholder: var(--clr-accent-300);
+    --clr-recommendation-shdw: var(--clr-accent-300);
+    
+    --clr-text-opp: white;
+    --clr-text-400: black;
+    --clr-inversion: 0;
+    --nav-brightness: none;
+    /*  */
+
+
     --body-img:url('./img/light-bg.jpg');
     --nav-img:url('./img/light-nav.jpg');
 }
 
 
 :root.dark{
-    --clr-accent-300: hsl(0, 0%, 86%);
+    --clr-accent-primary: var(--clr-accent-950);
+    --shdw-px-diff: var(--shdw-px-dark);
+    --clr-fill-hsl: 249, 7%, 20%;
+    --clr-btn-hsl: 0, 0%,0%;
+    --clr-post-it-hs: 39,9%;
+    --clr-post-it-l:42%;
+    --clr-post-it--accent-l:37%;
 
-    --clr-btn: hsla(0, 0%, 0%, 0.6);
-    --clr-btn-hover: hsla(0, 0%, 0%, 0.8);
-    --clr-post-it: hsl(39, 9%, 42%);
-    --clr-post-it-accent: hsl(38, 10%, 37%);
-    --clr-aside: hsla(249, 7%, 20%, 0.8);
-    --clr-footer: var(--clr-neutral-400);
-    --clr-text-400: hsl(0, 0%, 100%);
-    --clr-text-opp: var(--clr-neutral-500);
-    --clr-recommendation-shdw: hsl(0, 0%, 80%);
-    --shdw-header: var(--shdw-header-dark);
-    --shdw-motto: var(--shdw-motto-dark);
+    --clr-placeholder: var(--clr-accent-100);
+    --clr-recommendation-shdw: var(--clr-accent-100);
     --clr-aside-border: var(--clr-border-dark);
-    --clr-aside-shdw: var(--clr-shdw-dark);
-    --drop-shdw-nav: var(--drop-shdw-500);
-
+    
+    --clr-text-400: white;
+    --clr-text-opp: var(--clr-accent-900);
     --nav-brightness:.6;
     --clr-inversion: 1;
 
@@ -356,7 +371,7 @@ body{
     background-color: var(--clr-footer);
     color: var(--clr-text-400);
     padding: var(--padding-400);
-    border-top: 1px solid var(--clr-footer-accent);
+    border-top: 1px solid var(--clr-accent-primary);
 }
 
 .website-footer .webpage-by {
@@ -478,17 +493,17 @@ input[type="search"].search-input:focus{
 }
 
 input[type="search"]::placeholder{
-    color: var(--clr-accent-300);
+    color: var(--clr-placeholder);
     font-style: var(--_hover-style); 
 }
 
 input[type="search"]::-webkit-input-placeholder {
-    color: var(--clr-accent-300);
+    color: var(--clr-placeholder);
     font-style: var(--_hover-style); 
 }
 
 input[type="search"]:-ms-input-placeholder {
-    color: var(--clr-accent-300) !important;
+    color: var(--clr-placeholder) !important;
     font-style: var(--_hover-style) !important;
 }
 
@@ -606,7 +621,7 @@ main{
     -webkit-transition: var(--trans-all-400);
     -moz-transition: var(--trans-all-400);
     border-bottom: 0.02em solid var(--clr-aside-border);
-    box-shadow: inset 0px 0px 10px 0 var(--clr-aside-shdw);
+    box-shadow: inset 0px 0px 10px 0 var(--clr-accent-primary);
 }
 
 .aside-main:last-of-type{
@@ -955,7 +970,7 @@ button.left-arrow:disabled:hover >img {
 
 .section-header{
     font-size: var(--fs-600);
-    text-shadow: 1px 1px var(--clr-text-opp);
+    text-shadow: var(--shdw-px-diff) var(--clr-text-opp);
     font-family: var(--ff-section-header);
     text-transform: uppercase;
 }
@@ -978,7 +993,6 @@ button.left-arrow:disabled:hover >img {
     color: var(--clr-text-400);
     background: var(--clr-btn);
     padding: 0.3rem var(--size-300);
-    border: 1px solid var(--clr-neutral-400);
     box-shadow: 0 0 3px 0 var(--clr-text-400);
     border-radius: var(--border-rd-400);
     cursor: pointer;

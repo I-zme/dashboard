@@ -28,7 +28,7 @@
     --saturation:80%;
     --bk-cover-opacity: 0.2;
 
-    --bk-clr-page:hsl(249, 7%, 20%);
+    --bk-clr-page:hsl(var(--clr-fill-inner));
     --bk-clr-shdw: rgba(0, 0, 0, 0.1);
 }
 
