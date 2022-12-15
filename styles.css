@@ -81,6 +81,8 @@
     --clr-accent-300: hsl(0, 0%, 37%);
     --clr-accent-900: hsl(249, 7%, 5%);
 
+    --clr-btn: hsla(var(--clr-btn-hsl), 0.6);
+    --clr-btn-hover: hsla(var(--clr-btn-hsl), 1);   
     /* vars that change in dark mode */
     --clr-accent-primary: var(--clr-accent-200);
     --clr-accent-secondary: var(--clr-accent-300);
@@ -966,7 +968,7 @@ button.left-arrow:disabled:hover >img {
 .rnd-btn {
     border: none;
     color: var(--clr-text-400);
-    background: hsla(var(--clr-btn-hsl), 0.6);
+    background: var(--clr-btn);
     padding: 0.3rem var(--padding-300);
     box-shadow: 0 0 3px 0 var(--clr-text-400);
     border-radius: var(--border-rd-400);
@@ -974,7 +976,7 @@ button.left-arrow:disabled:hover >img {
 }
 
 .rnd-btn:hover{
-    background: hsla(var(--clr-btn-hsl), 1);
+    background: var(--clr-btn-hover);
 }
 
 
