@@ -324,9 +324,6 @@ recommendationModal.addEventListener('click',(e)=>{
 
 
 
-
-
-
 // the book event listeners are put after the daily recommendation so that they apply to the recommendation book too
 // event listeners
 

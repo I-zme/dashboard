@@ -1,5 +1,7 @@
 const root = document.documentElement;
 
+
+// THEMES - DROPDOWN AND THEME CHANGE
 // theme dropdown
 const themeToggle = document.querySelector('.theme-dropdown-btn');
 const themeDropDown= document.querySelector('.dropdown-content');
@@ -8,6 +10,7 @@ themeToggle.addEventListener('click',()=>{
     themeDropDown.hasAttribute('data-visible') ? themeDropDown.setAttribute('aria-expanded','false') : themeDropDown.setAttribute('aria-expanded','true');
 })
 
+// theme click functionality
 const themes = document.querySelectorAll('.dropdown-content > span');
 themes.forEach(theme => {
     theme.addEventListener('click',()=>{
@@ -39,6 +42,12 @@ themes.forEach(theme => {
     });
 })
 
+// theme on load set to personal preference
+document.addEventListener('DOMContentLoaded',()=>{
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        root.setAttribute('class', 'dark');
+    }
+});
 
 // clicking outside the div to close the dropdown
 document.addEventListener('click',(e)=>{
@@ -47,16 +56,10 @@ document.addEventListener('click',(e)=>{
     }
 });
 
-// change themes
-document.addEventListener('DOMContentLoaded',()=>{
-    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-        root.setAttribute('class', 'dark');
-    }
-});
 
 
-
-// navbar
+// NAVBAR
+// expand and collapse
 const navToggle = document.querySelector('.nav-toggle');
 navToggle.addEventListener('click',()=>{
     navToggle.toggleAttribute('data-collapsed')
@@ -73,12 +76,20 @@ navToggle.addEventListener('click',()=>{
 
 })
 
+// click on navbar to expand collapse
+const navbar = document.querySelector('.sidebar');
+navbar.addEventListener('click',(e)=>{
+    if(e.target===navbar){
+        navToggle.click()
+    }
+})
+
+// expand and collapse states: if big screen on load or resize - expanded; else - collapsed.
 document.addEventListener('DOMContentLoaded',(e)=>{
     if(window.matchMedia("(max-width:50em)").matches){
         navToggle.click()
     }
 })
-
 
 window.addEventListener('resize',()=>{
     if(window.matchMedia("(max-width:50em)").matches){
@@ -91,16 +102,8 @@ window.addEventListener('resize',()=>{
     }
 })
 
-const navbar = document.querySelector('.sidebar');
-navbar.addEventListener('click',(e)=>{
-    if(e.target===navbar){
-        navToggle.click()
-    }
-})
 
-
-
-// announcements
+// ANNOUNCEMENTS
 // announcements scroll and thumnbnail is mostly based on a 30SecondsofCode article at https://www.30secondsofcode.org/css/s/horizontal-gallery, with changes and customization for this site.
 
 class Announcement {
@@ -197,6 +200,7 @@ function scrollToElement(elem) {
     annoucementsContainer.scrollTo(index * announcementsWidth,0);
 }
 
+// create thumbnails and scroll with them
 const announcementSlides = document.querySelectorAll('.post-it')
 thumbnailContainer.innerHTML += [...announcementSlides]
     .map((slide, i)=>  `<div class="thumbnail" data-id="${i}"></div>`)
@@ -209,6 +213,7 @@ thumbnailContainer.querySelectorAll('.thumbnail').forEach(elem => {
     });
 });
 
+// scroll announcements using navigation arrows
 annoucementsContainer.addEventListener('scroll', event => hightlightThumbnails());
 
 const leftArrow = document.querySelector('button.left-arrow');
@@ -225,6 +230,7 @@ rightArrow.addEventListener('click', ()=>{
 })
 
 
+// mutation observer to disable and enable the navigation arrows
 const firstThumbnail = thumbnailContainer.firstElementChild
 const lastThumbnail = thumbnailContainer.lastElementChild
 
@@ -246,15 +252,9 @@ firstChildMutationer.observe(firstThumbnail, {attributes: true})
 lastChildMutationer.observe(lastThumbnail, {attributes: true})
 
 
-// timer
-// let timer;
-
-// setInterval()
 
 
-
-
-// aside main container
+// ASIDE MAIN CONTAINER
 const asideContainers = document.querySelectorAll('.aside-main');
 const sideContainerAnnouncementsToggle = document.querySelector('button.tab-toggle.announcements-toggle');
 
