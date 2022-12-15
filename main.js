@@ -101,6 +101,7 @@ navbar.addEventListener('click',(e)=>{
 
 
 // announcements
+// announcements scroll and thumnbnail is mostly based on a 30SecondsofCode article at https://www.30secondsofcode.org/css/s/horizontal-gallery, with changes and customization for this site.
 
 class Announcement {
     constructor(title, text, link){

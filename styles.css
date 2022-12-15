@@ -33,9 +33,9 @@
     --post-it-size: 250px;
 
     /* padding */
-    --size-300: .5rem;
-    --padding-300: var(--size-300);
+    --padding-300: .5rem;
     --padding-400: 1rem;
+    --padding-600: 2rem;
     --padding-700: 3rem;
     --post-it-spacing: 10px;
 
@@ -50,6 +50,7 @@
     --fs-400:1rem;
     --fs-500:1.2rem;
     --fs-600:1.5rem;
+    --fs-650:1.875rem;
     --fs-700:2rem;
     --fs-800:3rem;
     --fs-body:var(--fs-500);
@@ -62,8 +63,7 @@
     --ff-post-it: 'El Messiri';
     --ff-books: 'El Messiri';
 
-
-
+    /*  */
     --trans-400: .4s ease-in-out;
     --trans-all-400: all var(--trans-400);
     --border-rd-400: 15px;
@@ -72,55 +72,29 @@
     --shdw-px-light:1px 1px;
     --shdw-px-dark:2px 2px;
     --shdw-px-diff:var(--shdw-px-light);
-
-
-    --clr-border-light: hsla(41, 27%, 60%, 0.8);
-    --clr-border-dark: hsl(7, 43%, 6%);
-
     --drop-shdw-700: 1px 1px 1px var(--clr-accent-900);
     --drop-shdw-text: 1px 1px 1px var(--clr-text-400);
 
-    /* vars that change in dark mode */
-    --clr-aside-border:var(--clr-border-light);
-
-
-    /* colors */
+    /* COLORS */
     --clr-accent-100: hsl(0, 0%, 86%);
     --clr-accent-200: hsl(41, 10%, 60%);
     --clr-accent-300: hsl(0, 0%, 37%);
-    --clr-accent-500: hsl(8, 21%, 28%);
-    --clr-accent-900: hsl(0, 0%, 18%);
-    --clr-accent-950: hsl(249, 7%, 5%);
-    
+    --clr-accent-900: hsl(249, 7%, 5%);
+
+    /* vars that change in dark mode */
     --clr-accent-primary: var(--clr-accent-200);
+    --clr-accent-secondary: var(--clr-accent-300);
 
-    /* molds with changing vars for dark/light mode */
-    --clr-aside: hsla(var(--clr-fill-hsl), 0.8);
-    --clr-footer: hsl(var(--clr-fill-hsl));
-    --clr-btn: hsla(var(--clr-btn-hsl), 0.6);
-    --clr-btn-hover: hsla(var(--clr-btn-hsl), 1);
-    --clr-post-it: hsl(var(--clr-post-it-hs), var(--clr-post-it-l));
-    --clr-post-it-accent: hsl(var(--clr-post-it-hs), var(--clr-post-it--accent-l));
-    --drop-shdw-nav: var(--shdw-px-diff) 0 var(--clr-accent-primary);
-    --shdw-header: var(--shdw-px-diff) var(--clr-accent-primary), 0 0 10px var(--clr-text-opp);
-    --shdw-motto: var(--shdw-px-light) var(--clr-accent-primary), 0 0 10px var(--clr-text-opp);
-
-    /* light mode */
     --clr-fill-hsl: 41, 27%, 87%;
     --clr-btn-hsl: 0, 10%, 95%;
     --clr-post-it-hs: 59, 22%;
     --clr-post-it-l: 73%;
-    --clr-post-it--accent-l: 68%;
-
-    --clr-placeholder: var(--clr-accent-300);
-    --clr-recommendation-shdw: var(--clr-accent-300);
+    --clr-post-it-accent-l: 68%;
     
     --clr-text-opp: white;
     --clr-text-400: black;
     --clr-inversion: 0;
     --nav-brightness: none;
-    /*  */
-
 
     --body-img:url('./img/light-bg.jpg');
     --nav-img:url('./img/light-nav.jpg');
@@ -128,22 +102,21 @@
 
 
 :root.dark{
-    --clr-accent-primary: var(--clr-accent-950);
-    --shdw-px-diff: var(--shdw-px-dark);
+    --clr-accent-primary: var(--clr-accent-900);
+    --clr-accent-secondary: var(--clr-accent-100);
+
     --clr-fill-hsl: 249, 7%, 20%;
     --clr-btn-hsl: 0, 0%,0%;
     --clr-post-it-hs: 39,9%;
     --clr-post-it-l:42%;
-    --clr-post-it--accent-l:37%;
+    --clr-post-it-accent-l:37%;
 
-    --clr-placeholder: var(--clr-accent-100);
-    --clr-recommendation-shdw: var(--clr-accent-100);
-    --clr-aside-border: var(--clr-border-dark);
-    
-    --clr-text-400: white;
     --clr-text-opp: var(--clr-accent-900);
-    --nav-brightness:.6;
+    --clr-text-400: white;
     --clr-inversion: 1;
+    --nav-brightness:.6;
+
+    --shdw-px-diff: var(--shdw-px-dark);
 
     --body-img: url('./img/dark-bg.jpg');
     --nav-img: url('./img/dark-nav.jpg');
@@ -239,6 +212,7 @@ body{
     --_bar-spacing:1em;
     --nav-toggle-size:50px;
     --_nav-img-size:30px;
+    --_drop-shdw-nav: var(--shdw-px-diff) 0 var(--clr-accent-primary);
 
     height: 100%;
     min-width: var(--nav-width);
@@ -314,7 +288,7 @@ body{
 
 .sidebar .nav-img,
 .sidebar > button > img#nav-toggle-img{
-    filter: invert(var(--clr-inversion)) drop-shadow(var(--drop-shdw-nav));
+    filter: invert(var(--clr-inversion)) drop-shadow(var(--_drop-shdw-nav));
 }
 
 .sidebar .page-name,
@@ -325,7 +299,7 @@ body{
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
 
-    filter: drop-shadow(var(--drop-shdw-nav));
+    filter: drop-shadow(var(--_drop-shdw-nav));
     font-weight: 700;
     color: var(--clr-text-400);
 }
@@ -368,7 +342,7 @@ body{
 .website-footer{
     min-height: var(--footer-height);
     height: fit-content;
-    background-color: var(--clr-footer);
+    background-color: hsl(var(--clr-fill-hsl));
     color: var(--clr-text-400);
     padding: var(--padding-400);
     border-top: 1px solid var(--clr-accent-primary);
@@ -424,7 +398,7 @@ body{
     --_header-spacing-400: 1rem;
     grid-row: 1;
     color: var(--clr-text-400);
-    padding: 2rem;
+    padding: var(--padding-600);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--_header-spacing-400);
@@ -440,8 +414,8 @@ body{
 }
 
 .header-A .motto {
-    font-size: 1.875rem;
-    text-shadow: var(--shdw-motto);
+    font-size: var(--fs-650);
+    text-shadow: var(--shdw-px-light) var(--clr-accent-primary), 0 0 10px var(--clr-text-opp);
 }
 
 .header-B{
@@ -474,7 +448,7 @@ input[type="search"].search-input{
     --_hover-style:italic;
     flex-grow: 1;
     border-radius: var(--border-rd-400);
-    padding: var(--size-300) 0.5em;
+    padding: var(--padding-300) 0.5em;
 }
 
 form.search-bar:focus-within{
@@ -493,17 +467,17 @@ input[type="search"].search-input:focus{
 }
 
 input[type="search"]::placeholder{
-    color: var(--clr-placeholder);
+    color: var(--clr-accent-secondary);
     font-style: var(--_hover-style); 
 }
 
 input[type="search"]::-webkit-input-placeholder {
-    color: var(--clr-placeholder);
+    color: var(--clr-accent-secondary);
     font-style: var(--_hover-style); 
 }
 
 input[type="search"]:-ms-input-placeholder {
-    color: var(--clr-placeholder) !important;
+    color: var(--clr-accent-secondary) !important;
     font-style: var(--_hover-style) !important;
 }
 
@@ -543,8 +517,8 @@ input[type="search"]:-ms-input-placeholder {
     display: grid;
     background-color: var(--clr-text-opp);
     border-radius: var(--border-rd-400);
-    padding: var(--size-300);
-    gap: var(--size-300);
+    padding: var(--padding-300);
+    gap: var(--padding-300);
 
     box-shadow: 0 0 3px var(--clr-text-400);
 }
@@ -553,7 +527,7 @@ input[type="search"]:-ms-input-placeholder {
     --_theme-icn-size:1.3em;
     display: flex;
     align-items: center;
-    gap: var(--size-300);
+    gap: var(--padding-300);
     min-width: max-content;
     cursor: pointer;
 }
@@ -609,7 +583,7 @@ main{
 /* ASIDE MAIN CONTAINER */
 
 .aside-main-container {
-    background-color: var(--clr-aside);
+    background-color: hsla(var(--clr-fill-hsl), 0.8);
     color: var(--clr-text-400);
     box-shadow: inset 0px 2px 10px 0 hsl(249, 7%, 10%), 0 0px 10px hsl(41, 43%, 16%);
     border-radius: 5px 0 0 0;
@@ -620,7 +594,7 @@ main{
     transition: var(--trans-all-400);
     -webkit-transition: var(--trans-all-400);
     -moz-transition: var(--trans-all-400);
-    border-bottom: 0.02em solid var(--clr-aside-border);
+    border-bottom: 0.02em solid var(--clr-accent-primary);
     box-shadow: inset 0px 0px 10px 0 var(--clr-accent-primary);
 }
 
@@ -710,17 +684,20 @@ button.tab-toggle.announcements-toggle {
 
 /* ANOUNCEMENTS */
 .announcements{
+    --_clr-post-it-accent: hsl(var(--clr-post-it-hs), var(--clr-post-it-accent-l));
+
     display: grid;
     grid-template-rows: repeat(3, min-content);
     justify-items: center;
     position: relative;
 }
 
+/* post it is based on the codepen by Michael Picker at https: //codepen.io/mp/pen/kBEeKw, with some changes. */
 .post-it{
     width: var(--post-it-size);
     height: var(--post-it-size);
-    background: var(--clr-post-it);
-    border: solid var(--clr-post-it-accent);
+    background: hsl(var(--clr-post-it-hs), var(--clr-post-it-l));
+    border: solid var(--_clr-post-it-accent);
 
     float: left;
     border-width: 5px 3px 3px 5px;
@@ -804,14 +781,12 @@ button.tab-toggle.announcements-toggle {
     --_thumbnail-size: 10px;
     height: var(--_thumbnail-size);
     width: var(--_thumbnail-size);
-    /* background-color: #ff7eb9; */
-    background-color: var(--clr-post-it-accent);
+    background-color: var(--_clr-post-it-accent);
     cursor: pointer;
 }
 
 .thumbnails-container .thumbnail.highlighted {
-    /* background-color: black; */
-    background-color: white;
+    background-color: var(--clr-text-400);
 }
 
 button.left-arrow,
@@ -889,11 +864,11 @@ button.left-arrow:disabled:hover >img {
 .recommendation-preview {
     margin-top:var(--padding-300);
     cursor: pointer;
-    box-shadow: 0 0 10px 0 var(--clr-recommendation-shdw);
+    box-shadow: 0 0 10px 0 var(--clr-accent-secondary);
 }
 
 .recommendation-preview:hover {
-    box-shadow: 0 0 15px 0 var(--clr-recommendation-shdw);
+    box-shadow: 0 0 15px 0 var(--clr-accent-secondary);
 }
 
 /* recommendation-modal */
@@ -965,7 +940,7 @@ button.left-arrow:disabled:hover >img {
 
 .logo{
     font-family: var(--ff-header);
-    text-shadow: var(--shdw-header);
+    text-shadow: var(--shdw-px-diff) var(--clr-accent-primary), 0 0 10px var(--clr-text-opp);
 }
 
 .section-header{
@@ -991,15 +966,15 @@ button.left-arrow:disabled:hover >img {
 .rnd-btn {
     border: none;
     color: var(--clr-text-400);
-    background: var(--clr-btn);
-    padding: 0.3rem var(--size-300);
+    background: hsla(var(--clr-btn-hsl), 0.6);
+    padding: 0.3rem var(--padding-300);
     box-shadow: 0 0 3px 0 var(--clr-text-400);
     border-radius: var(--border-rd-400);
     cursor: pointer;
 }
 
 .rnd-btn:hover{
-    background: var(--clr-btn-hover);
+    background: hsla(var(--clr-btn-hsl), 1);
 }
 
 

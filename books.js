@@ -1,3 +1,5 @@
+// the books code is based on a codrops tutorial at https://tympanus.net/codrops/2013/01/08/3d-book-showcase/, with additions and customization (for example using classes or clicking on book for interaction).
+
 const booksContainer = document.querySelector('.books');
 
 class Book {

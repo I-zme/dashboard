@@ -16,7 +16,6 @@
     --bk-preview-text-padding: 10px;
 
     --bk-clr-text:var(--clr-text-400);
-    --bk-clr-page:white;
 
     --bk-cover-opacity:0.4;
     --lightness:65%;
@@ -27,8 +26,6 @@
     --lightness:15%;
     --saturation:80%;
     --bk-cover-opacity: 0.2;
-
-    --bk-clr-page:hsl(var(--clr-fill-inner));
     --bk-clr-shdw: rgba(0, 0, 0, 0.1);
 }
 
@@ -195,7 +192,7 @@
 .bk-right,
 .bk-top,
 .bk-bottom {
-    background-color: var(--bk-clr-page);
+    background-color: var(--clr-text-opp);
 }
 
 .bk-front>div {
@@ -251,18 +248,22 @@
 .bk-page {
     box-shadow: 2px 0 2px 0 black, inset 9px 0 8px -8px rgb(100, 100, 100);
     clip-path: inset(0 0 0 1px);
+
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .bk-page .bk-content {
     position: absolute;
-    top: 30px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
+    top: 10%;
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow: hidden;
     padding: var(--bk-text-padding);
     pointer-events: none;
-
+    font-size: var(--fs-300);
     color: var(--bk-clr-text);
 }
 
@@ -273,20 +274,21 @@
 
 .bk-page .bk-content .bk-quote::before,
 .bk-page .bk-content .bk-quote::after {
+    --_quote-spacing:10px;
     position: absolute;
     color: grey;
-    font-size: 36px;
+    font-size: var(--fs-700);
 }
 
 .bk-page .bk-content .bk-quote::before {
     content: '\201C';
-    left: 0;
+    left: var(--_quote-spacing);
     top: 0;
 }
 
 .bk-page .bk-content .bk-quote::after {
     content: '\201E';
-    right: 0;
+    right: var(--_quote-spacing);
 }
 
 .bk-front .bk-cover h2 {
